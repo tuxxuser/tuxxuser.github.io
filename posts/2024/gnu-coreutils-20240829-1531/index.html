@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>GNU Coreutils | Reidar&#39;s Notebook</title>
+<meta name="keywords" content="gnu, gnu coreutils, coreutils">
+<meta name="description" content="Core utilities (often referred as &ldquo;coreutils&rdquo;) are the basic, fundamental command-line tools of a GNU/Linux system. These utilities provide basic file, shell, and text manipulation operations. The core utilities are part of the GNU Project and are used in most Linux distributions.
+List of GNU Core Utilities commands Following is a list of commands from GNU Core Utilities for Unix (and Unix-like) operating systems.
+File Utilities Name Description chcon Changes (SELinux) file security context chgrp Change group ownership chown Change file owner and group chmod Change (file) access permissions cp Copy files and directories dd Convert and copy a file df Report file system space usage dir Briefly list directory contents (equivalent to ls -C -b) dircolors Color setup for ls install Copy files and set attributes ln Make links between files ls List directory contents mkdir Make directories mkfifo Make FIFOs (named pipes) mknod Make block or character special files mktemp Create temporary file or directory mv Move (rename) files realpath Print the resolved file name rm Remove files or directories rmdir Remove empty directories shred Remove files more securely sync Flushes file system buffers touch Change file timestamps truncate Shrink or extend the size of a file vdir Verbosely list directory contents (equivalent to ls -C -b) Text Utilities Name Description b2sum Print or check BLAKE2 digests base32 Encodes or decodes Base32, and prints result to stdout base64 Encodes or decodes Base64, and prints result to stdout cat Concatenate and write files cksum Print and verify file checksums comm Compare two sorted files line by line csplit Split a file into context-determined pieces	p cut Print selected parts of lines expand Convert tabs to spaces fmt Reformat paragraph text fold Wrap input lines to fit in specified width head Output the first part of files join Join lines on a common field md5sum Print or check MD5 digests nl Number lines and write files numfmt Reformat numbers od Write files in octal or other formats paste Merge lines of files ptx Produces a permuted index of file contents pr Paginate or columnate files for printing sha1sum Print or check SHA-1 digests (length = 160 bits) sha224sum Print or check SHA-2 digests (length = 224 bits) sha256sum Print or check SHA-2 digests (length = 256 bits) sha384sum Print or check SHA-2 digests (length = 384 bits) sha512sum Print or check SHA-2 digests (length = 512 bits) shuf Shuffling text sort Sort text files split Split a file into pieces sum Print checksum and block counts tac Concatenate and write files in reverse tail Output the last part of files tr Translate, squeeze, and/or delete characters tsort Topological sort unexpand Convert spaces to tabs uniq Uniquify files wc Print newline, word, and byte counts Shell Utilities Name Description arch Print machine hardware name basename Strip directory and suffix from a file name chroot Run a command with a different root directory date Print or set system date and time dirname Strip last file name component du Estimate file space usage echo Print a line of text env Run a command in a modified environment expr Evaluate expressions factor Print prime factors false Do nothing, unsuccessfully groups Print group names a user is in hostid Print numeric host identifier id Print user identity link Make a hard link via the link syscall logname Print current login name nice Run a command with modified niceness nohup Run a command immune to hangups nproc Print the number of available processors pathchk Check file name validity and portability pinky Print information about users printenv Print all or some environment variables printf Format and print data pwd Print working directory readlink Print value of a symlink or canonical file name runcon Run a command in specified SELinux context seq Print numeric sequences sleep Delay for a specified time stat Report file or file system status stdbuf Run a command with modified I/O stream buffering stty Print or change terminal characteristics tee Redirect output to multiple files or processes test Check file types and compare values timeout Run a command with a time limit true Do nothing, successfully tty Print file name of terminal on standard input uname Print system information unlink Remove files via the unlink syscall uptime Print system uptime and load users Print login names of users currently logged in who Print who is currently logged in whoami Print effective user name yes Print a string until interrupted [ Check file types and compare values References GNU Coreutils GNU Coreutils Index GNU Project Homepage Wikipedia: List Of GNU Core Utilities Commands ">
+<meta name="author" content="Reidar">
+<link rel="canonical" href="https://tuxxuser.github.io/posts/2024/gnu-coreutils-20240829-1531/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.7da7716a1f2d0725f74c6ae7f8d6adafc43aabe2b366b65bfbf433448e2a2001.css" integrity="sha256-fadxah8tByX3TGrn&#43;Natr8Q6q&#43;KzZrZb&#43;/QzRI4qIAE=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://tuxxuser.github.io/favicon.ico">
+<link rel="apple-touch-icon" href="https://tuxxuser.github.io/apple-touch-icon.png">
+<link rel="alternate" hreflang="en" href="https://tuxxuser.github.io/posts/2024/gnu-coreutils-20240829-1531/">
+
+  <meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="GNU Coreutils | Reidar&#39;s Notebook" />
+<meta name="twitter:description" content="Core utilities (often referred as &ldquo;coreutils&rdquo;) are the basic, fundamental command-line tools of a GNU/Linux system. These utilities provide basic file, shell, and text manipulation operations. The core utilities are part of the GNU Project and are used in most Linux distributions.
+List of GNU Core Utilities commands Following is a list of commands from GNU Core Utilities for Unix (and Unix-like) operating systems.
+File Utilities Name Description chcon Changes (SELinux) file security context chgrp Change group ownership chown Change file owner and group chmod Change (file) access permissions cp Copy files and directories dd Convert and copy a file df Report file system space usage dir Briefly list directory contents (equivalent to ls -C -b) dircolors Color setup for ls install Copy files and set attributes ln Make links between files ls List directory contents mkdir Make directories mkfifo Make FIFOs (named pipes) mknod Make block or character special files mktemp Create temporary file or directory mv Move (rename) files realpath Print the resolved file name rm Remove files or directories rmdir Remove empty directories shred Remove files more securely sync Flushes file system buffers touch Change file timestamps truncate Shrink or extend the size of a file vdir Verbosely list directory contents (equivalent to ls -C -b) Text Utilities Name Description b2sum Print or check BLAKE2 digests base32 Encodes or decodes Base32, and prints result to stdout base64 Encodes or decodes Base64, and prints result to stdout cat Concatenate and write files cksum Print and verify file checksums comm Compare two sorted files line by line csplit Split a file into context-determined pieces	p cut Print selected parts of lines expand Convert tabs to spaces fmt Reformat paragraph text fold Wrap input lines to fit in specified width head Output the first part of files join Join lines on a common field md5sum Print or check MD5 digests nl Number lines and write files numfmt Reformat numbers od Write files in octal or other formats paste Merge lines of files ptx Produces a permuted index of file contents pr Paginate or columnate files for printing sha1sum Print or check SHA-1 digests (length = 160 bits) sha224sum Print or check SHA-2 digests (length = 224 bits) sha256sum Print or check SHA-2 digests (length = 256 bits) sha384sum Print or check SHA-2 digests (length = 384 bits) sha512sum Print or check SHA-2 digests (length = 512 bits) shuf Shuffling text sort Sort text files split Split a file into pieces sum Print checksum and block counts tac Concatenate and write files in reverse tail Output the last part of files tr Translate, squeeze, and/or delete characters tsort Topological sort unexpand Convert spaces to tabs uniq Uniquify files wc Print newline, word, and byte counts Shell Utilities Name Description arch Print machine hardware name basename Strip directory and suffix from a file name chroot Run a command with a different root directory date Print or set system date and time dirname Strip last file name component du Estimate file space usage echo Print a line of text env Run a command in a modified environment expr Evaluate expressions factor Print prime factors false Do nothing, unsuccessfully groups Print group names a user is in hostid Print numeric host identifier id Print user identity link Make a hard link via the link syscall logname Print current login name nice Run a command with modified niceness nohup Run a command immune to hangups nproc Print the number of available processors pathchk Check file name validity and portability pinky Print information about users printenv Print all or some environment variables printf Format and print data pwd Print working directory readlink Print value of a symlink or canonical file name runcon Run a command in specified SELinux context seq Print numeric sequences sleep Delay for a specified time stat Report file or file system status stdbuf Run a command with modified I/O stream buffering stty Print or change terminal characteristics tee Redirect output to multiple files or processes test Check file types and compare values timeout Run a command with a time limit true Do nothing, successfully tty Print file name of terminal on standard input uname Print system information unlink Remove files via the unlink syscall uptime Print system uptime and load users Print login names of users currently logged in who Print who is currently logged in whoami Print effective user name yes Print a string until interrupted [ Check file types and compare values References GNU Coreutils GNU Coreutils Index GNU Project Homepage Wikipedia: List Of GNU Core Utilities Commands " />
+<meta property="og:title" content="GNU Coreutils | Reidar&#39;s Notebook" />
+<meta property="og:description" content="Core utilities (often referred as &ldquo;coreutils&rdquo;) are the basic, fundamental command-line tools of a GNU/Linux system. These utilities provide basic file, shell, and text manipulation operations. The core utilities are part of the GNU Project and are used in most Linux distributions.
+List of GNU Core Utilities commands Following is a list of commands from GNU Core Utilities for Unix (and Unix-like) operating systems.
+File Utilities Name Description chcon Changes (SELinux) file security context chgrp Change group ownership chown Change file owner and group chmod Change (file) access permissions cp Copy files and directories dd Convert and copy a file df Report file system space usage dir Briefly list directory contents (equivalent to ls -C -b) dircolors Color setup for ls install Copy files and set attributes ln Make links between files ls List directory contents mkdir Make directories mkfifo Make FIFOs (named pipes) mknod Make block or character special files mktemp Create temporary file or directory mv Move (rename) files realpath Print the resolved file name rm Remove files or directories rmdir Remove empty directories shred Remove files more securely sync Flushes file system buffers touch Change file timestamps truncate Shrink or extend the size of a file vdir Verbosely list directory contents (equivalent to ls -C -b) Text Utilities Name Description b2sum Print or check BLAKE2 digests base32 Encodes or decodes Base32, and prints result to stdout base64 Encodes or decodes Base64, and prints result to stdout cat Concatenate and write files cksum Print and verify file checksums comm Compare two sorted files line by line csplit Split a file into context-determined pieces	p cut Print selected parts of lines expand Convert tabs to spaces fmt Reformat paragraph text fold Wrap input lines to fit in specified width head Output the first part of files join Join lines on a common field md5sum Print or check MD5 digests nl Number lines and write files numfmt Reformat numbers od Write files in octal or other formats paste Merge lines of files ptx Produces a permuted index of file contents pr Paginate or columnate files for printing sha1sum Print or check SHA-1 digests (length = 160 bits) sha224sum Print or check SHA-2 digests (length = 224 bits) sha256sum Print or check SHA-2 digests (length = 256 bits) sha384sum Print or check SHA-2 digests (length = 384 bits) sha512sum Print or check SHA-2 digests (length = 512 bits) shuf Shuffling text sort Sort text files split Split a file into pieces sum Print checksum and block counts tac Concatenate and write files in reverse tail Output the last part of files tr Translate, squeeze, and/or delete characters tsort Topological sort unexpand Convert spaces to tabs uniq Uniquify files wc Print newline, word, and byte counts Shell Utilities Name Description arch Print machine hardware name basename Strip directory and suffix from a file name chroot Run a command with a different root directory date Print or set system date and time dirname Strip last file name component du Estimate file space usage echo Print a line of text env Run a command in a modified environment expr Evaluate expressions factor Print prime factors false Do nothing, unsuccessfully groups Print group names a user is in hostid Print numeric host identifier id Print user identity link Make a hard link via the link syscall logname Print current login name nice Run a command with modified niceness nohup Run a command immune to hangups nproc Print the number of available processors pathchk Check file name validity and portability pinky Print information about users printenv Print all or some environment variables printf Format and print data pwd Print working directory readlink Print value of a symlink or canonical file name runcon Run a command in specified SELinux context seq Print numeric sequences sleep Delay for a specified time stat Report file or file system status stdbuf Run a command with modified I/O stream buffering stty Print or change terminal characteristics tee Redirect output to multiple files or processes test Check file types and compare values timeout Run a command with a time limit true Do nothing, successfully tty Print file name of terminal on standard input uname Print system information unlink Remove files via the unlink syscall uptime Print system uptime and load users Print login names of users currently logged in who Print who is currently logged in whoami Print effective user name yes Print a string until interrupted [ Check file types and compare values References GNU Coreutils GNU Coreutils Index GNU Project Homepage Wikipedia: List Of GNU Core Utilities Commands " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://tuxxuser.github.io/posts/2024/gnu-coreutils-20240829-1531/" />
+    <meta property="og:image" content="https://tuxxuser.github.io/posts/2024/gnu-coreutils-20240829-1531/posts/cover-images/gnu-coreutils.png" /><meta property="article:section" content="posts" />
+  <meta property="article:published_time" content="2024-08-29T15:31:31&#43;03:00" />
+  <meta property="article:modified_time" content="2024-08-29T15:31:31&#43;03:00" />
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://tuxxuser.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "GNU Coreutils",
+      "item": "https://tuxxuser.github.io/posts/2024/gnu-coreutils-20240829-1531/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "GNU Coreutils | Reidar's Notebook",
+  "name": "GNU Coreutils",
+  "description": "Core utilities (often referred as \u0026ldquo;coreutils\u0026rdquo;) are the basic, fundamental command-line tools of a GNU/Linux system. These utilities provide basic file, shell, and text manipulation operations. The core utilities are part of the GNU Project and are used in most Linux distributions.\nList of GNU Core Utilities commands Following is a list of commands from GNU Core Utilities for Unix (and Unix-like) operating systems.\nFile Utilities Name Description chcon Changes (SELinux) file security context chgrp Change group ownership chown Change file owner and group chmod Change (file) access permissions cp Copy files and directories dd Convert and copy a file df Report file system space usage dir Briefly list directory contents (equivalent to ls -C -b) dircolors Color setup for ls install Copy files and set attributes ln Make links between files ls List directory contents mkdir Make directories mkfifo Make FIFOs (named pipes) mknod Make block or character special files mktemp Create temporary file or directory mv Move (rename) files realpath Print the resolved file name rm Remove files or directories rmdir Remove empty directories shred Remove files more securely sync Flushes file system buffers touch Change file timestamps truncate Shrink or extend the size of a file vdir Verbosely list directory contents (equivalent to ls -C -b) Text Utilities Name Description b2sum Print or check BLAKE2 digests base32 Encodes or decodes Base32, and prints result to stdout base64 Encodes or decodes Base64, and prints result to stdout cat Concatenate and write files cksum Print and verify file checksums comm Compare two sorted files line by line csplit Split a file into context-determined pieces\tp cut Print selected parts of lines expand Convert tabs to spaces fmt Reformat paragraph text fold Wrap input lines to fit in specified width head Output the first part of files join Join lines on a common field md5sum Print or check MD5 digests nl Number lines and write files numfmt Reformat numbers od Write files in octal or other formats paste Merge lines of files ptx Produces a permuted index of file contents pr Paginate or columnate files for printing sha1sum Print or check SHA-1 digests (length = 160 bits) sha224sum Print or check SHA-2 digests (length = 224 bits) sha256sum Print or check SHA-2 digests (length = 256 bits) sha384sum Print or check SHA-2 digests (length = 384 bits) sha512sum Print or check SHA-2 digests (length = 512 bits) shuf Shuffling text sort Sort text files split Split a file into pieces sum Print checksum and block counts tac Concatenate and write files in reverse tail Output the last part of files tr Translate, squeeze, and/or delete characters tsort Topological sort unexpand Convert spaces to tabs uniq Uniquify files wc Print newline, word, and byte counts Shell Utilities Name Description arch Print machine hardware name basename Strip directory and suffix from a file name chroot Run a command with a different root directory date Print or set system date and time dirname Strip last file name component du Estimate file space usage echo Print a line of text env Run a command in a modified environment expr Evaluate expressions factor Print prime factors false Do nothing, unsuccessfully groups Print group names a user is in hostid Print numeric host identifier id Print user identity link Make a hard link via the link syscall logname Print current login name nice Run a command with modified niceness nohup Run a command immune to hangups nproc Print the number of available processors pathchk Check file name validity and portability pinky Print information about users printenv Print all or some environment variables printf Format and print data pwd Print working directory readlink Print value of a symlink or canonical file name runcon Run a command in specified SELinux context seq Print numeric sequences sleep Delay for a specified time stat Report file or file system status stdbuf Run a command with modified I/O stream buffering stty Print or change terminal characteristics tee Redirect output to multiple files or processes test Check file types and compare values timeout Run a command with a time limit true Do nothing, successfully tty Print file name of terminal on standard input uname Print system information unlink Remove files via the unlink syscall uptime Print system uptime and load users Print login names of users currently logged in who Print who is currently logged in whoami Print effective user name yes Print a string until interrupted [ Check file types and compare values References GNU Coreutils GNU Coreutils Index GNU Project Homepage Wikipedia: List Of GNU Core Utilities Commands ",
+  "keywords": [
+    "gnu", "gnu coreutils", "coreutils"
+  ],
+  "wordCount" : "758",
+  "inLanguage": "en",
+  "image":"https://tuxxuser.github.io/posts/2024/gnu-coreutils-20240829-1531/posts/cover-images/gnu-coreutils.png","datePublished": "2024-08-29T15:31:31+03:00",
+  "dateModified": "2024-08-29T15:31:31+03:00",
+  "author":{
+    "@type": "Person",
+    "name": "Reidar"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://tuxxuser.github.io/posts/2024/gnu-coreutils-20240829-1531/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Reidar's Notebook",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://tuxxuser.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+
+</head>
+
+<body class=" dark type-posts kind-page layout-" id="top"><script data-no-instant>
+function switchTheme(theme) {
+  switch (theme) {
+    case 'light':
+      document.body.classList.remove('dark');
+      break;
+    case 'dark':
+      document.body.classList.add('dark');
+      break;
+    
+    default:
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+      }
+  }
+}
+
+function isDarkTheme() {
+  return document.body.className.includes("dark");
+}
+
+function getPrefTheme() {
+  return localStorage.getItem("pref-theme");
+}
+
+function setPrefTheme(theme) {
+  switchTheme(theme)
+  localStorage.setItem("pref-theme", theme);
+}
+
+const toggleThemeCallbacks = {}
+toggleThemeCallbacks['main'] = (isDark) => {
+  
+  if (isDark) {
+    setPrefTheme('light');
+  } else {
+    setPrefTheme('dark');
+  }
+}
+
+
+
+
+window.addEventListener('toggle-theme', function() {
+  
+  const isDark = isDarkTheme()
+  for (const key in toggleThemeCallbacks) {
+    toggleThemeCallbacks[key](isDark)
+  }
+});
+
+
+function toggleThemeListener() {
+  
+  window.dispatchEvent(new CustomEvent('toggle-theme'));
+}
+
+</script>
+<script>
+  
+  (function() {
+    const defaultTheme = 'dark';
+    const prefTheme = getPrefTheme();
+    const theme = prefTheme ? prefTheme : defaultTheme;
+
+    switchTheme(theme);
+  })();
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://tuxxuser.github.io/" accesskey="h" title="Reidar&#39;s Notebook (Alt + H)">Reidar&#39;s Notebook</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://tuxxuser.github.io/archive/" title="Archive"
+                >Archive
+                </a>
+            </li>
+            <li>
+                <a href="https://tuxxuser.github.io/tags/" title="Tags"
+                >Tags
+                </a>
+            </li>
+            <li>
+                <a href="https://tuxxuser.github.io/search/" title="Search (Alt &#43; /)"data-no-instant accesskey=/
+                >Search
+                </a>
+            </li>
+            <li>
+                <a href="https://tuxxuser.github.io/index.xml/" title="RSS Feed" target="_blank"
+                >RSS Feed<span class="external-link"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-external-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M11 7h-5a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-5" />
+  <line x1="10" y1="14" x2="20" y2="4" />
+  <polyline points="15 4 20 4 20 9" />
+</svg>
+</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main post">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://tuxxuser.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://tuxxuser.github.io/posts/">Posts</a></div><h1 class="post-title">GNU Coreutils</h1>
+    <div class="post-meta"><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar" style="user-select: text;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2" style="user-select: text;"></rect><line x1="16" y1="2" x2="16" y2="6" style="user-select: text;"></line><line x1="8" y1="2" x2="8" y2="6" style="user-select: text;"></line><line x1="3" y1="10" x2="21" y2="10" style="user-select: text;"></line></svg>
+  <span>2024-08-29</span></span><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon" style="user-select: text;"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" style="user-select: text;"></path><line x1="7" y1="7" x2="7" y2="7" style="user-select: text;"></line></svg>
+  <span class="post-tags"><a href="https://tuxxuser.github.io/tags/gnu/">Gnu</a><a href="https://tuxxuser.github.io/tags/gnu-coreutils/">Gnu Coreutils</a><a href="https://tuxxuser.github.io/tags/coreutils/">Coreutils</a></span></span><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text" style="user-select: text;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" style="user-select: text;"></path><polyline points="14 2 14 8 20 8" style="user-select: text;"></polyline><line x1="16" y1="13" x2="8" y2="13" style="user-select: text;"></line><line x1="16" y1="17" x2="8" y2="17" style="user-select: text;"></line><polyline points="10 9 9 9 8 9" style="user-select: text;"></polyline></svg>
+  <span>758 words</span></span><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><circle cx="12" cy="12" r="9"></circle><polyline points="12 7 12 12 15 15"></polyline></svg>
+  <span>4 min</span></span>
+
+      
+      
+    </div>
+  </header> 
+<figure class="entry-cover"><a href="https://tuxxuser.github.io/posts/cover-images/gnu-coreutils.png" target="_blank"
+            rel="noopener noreferrer"><img loading="lazy" src="https://tuxxuser.github.io/posts/cover-images/gnu-coreutils.png" alt=""></a>
+        
+</figure><div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#list-of-gnu-core-utilities-commands" aria-label="List of GNU Core Utilities commands">List of GNU Core Utilities commands</a><ul>
+                        
+                <li>
+                    <a href="#file-utilities" aria-label="File Utilities">File Utilities</a></li>
+                <li>
+                    <a href="#text-utilities" aria-label="Text Utilities">Text Utilities</a></li>
+                <li>
+                    <a href="#shell-utilities" aria-label="Shell Utilities">Shell Utilities</a></li>
+                <li>
+                    <a href="#references" aria-label="References">References</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>Core utilities (often referred as &ldquo;coreutils&rdquo;) are the basic, fundamental command-line tools of a GNU/Linux system.
+These utilities provide basic file, shell, and text manipulation operations. The core utilities are part of the <a href="https://www.gnu.org/home.en.html">GNU Project</a>
+and are used in most Linux distributions.</p>
+<h2 id="list-of-gnu-core-utilities-commands">List of GNU Core Utilities commands<a hidden class="anchor" aria-hidden="true" href="#list-of-gnu-core-utilities-commands">¶</a></h2>
+<p>Following is a list of commands from GNU Core Utilities for Unix (and Unix-like) operating systems.</p>
+<h3 id="file-utilities">File Utilities<a hidden class="anchor" aria-hidden="true" href="#file-utilities">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/chcon-invocation.html#index-chcon"><code>chcon</code></a></td>
+<td>Changes (SELinux) file security context</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/chgrp-invocation.html#index-chgrp"><code>chgrp</code></a></td>
+<td>Change group ownership</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/chown-invocation.html#index-chown"><code>chown</code></a></td>
+<td>Change file owner and group</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/chmod-invocation.html#index-chmod"><code>chmod</code></a></td>
+<td>Change (file) access permissions</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/cp-invocation.html#index-cp"><code>cp</code></a></td>
+<td>Copy files and directories</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/dd-invocation.html#index-dd"><code>dd</code></a></td>
+<td>Convert and copy a file</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/df-invocation.html#index-df"><code>df</code></a></td>
+<td>Report file system space usage</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/dir-invocation.html#index-dir"><code>dir</code></a></td>
+<td>Briefly list directory contents (equivalent to <code>ls -C -b</code>)</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/dircolors-invocation.html#index-dircolors"><code>dircolors</code></a></td>
+<td>Color setup for <code>ls</code></td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/install-invocation.html#index-install"><code>install</code></a></td>
+<td>Copy files and set attributes</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/ln-invocation.html#index-ln"><code>ln</code></a></td>
+<td>Make links between files</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/ls-invocation.html#index-ls"><code>ls</code></a></td>
+<td>List directory contents</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/mkdir-invocation.html#index-mkdir"><code>mkdir</code></a></td>
+<td>Make directories</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/mkfifo-invocation.html#index-mkfifo"><code>mkfifo</code></a></td>
+<td>Make FIFOs (named pipes)</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/mknod-invocation.html#index-mknod"><code>mknod</code></a></td>
+<td>Make block or character special files</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/mktemp-invocation.html#index-mktemp"><code>mktemp</code></a></td>
+<td>Create temporary file or directory</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/mv-invocation.html#index-mv"><code>mv</code></a></td>
+<td>Move (rename) files</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/realpath-invocation.html#index-realpath-1"><code>realpath</code></a></td>
+<td>Print the resolved file name</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/rm-invocation.html#index-rm"><code>rm</code></a></td>
+<td>Remove files or directories</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/rmdir-invocation.html#index-rmdir"><code>rmdir</code></a></td>
+<td>Remove empty directories</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/shred-invocation.html#index-shred"><code>shred</code></a></td>
+<td>Remove files more securely</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/sync-invocation.html#index-sync-1"><code>sync</code></a></td>
+<td>Flushes file system buffers</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/touch-invocation.html#index-touch"><code>touch</code></a></td>
+<td>Change file timestamps</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/truncate-invocation.html#index-truncate"><code>truncate</code></a></td>
+<td>Shrink or extend the size of a file</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/vdir-invocation.html#index-vdir"><code>vdir</code></a></td>
+<td>Verbosely list directory contents (equivalent to <code>ls -C -b</code>)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="text-utilities">Text Utilities<a hidden class="anchor" aria-hidden="true" href="#text-utilities">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/b2sum-invocation.html#index-b2sum"><code>b2sum</code></a></td>
+<td>Print or check BLAKE2 digests</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/base32-invocation.html#index-base32"><code>base32</code></a></td>
+<td>Encodes or decodes Base32, and prints result to stdout</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/base64-invocation.html#index-base64"><code>base64</code></a></td>
+<td>Encodes or decodes Base64, and prints result to stdout</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/cat-invocation.html#index-cat"><code>cat</code></a></td>
+<td>Concatenate and write files</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/cksum-invocation.html#index-cksum"><code>cksum</code></a></td>
+<td>Print and verify file checksums</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/comm-invocation.html#index-comm"><code>comm</code></a></td>
+<td>Compare two sorted files line by line</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/csplit-invocation.html#index-csplit"><code>csplit</code></a></td>
+<td>Split a file into context-determined pieces		p</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/cut-invocation.html#index-cut"><code>cut</code></a></td>
+<td>Print selected parts of lines</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/expand-invocation.html#index-expand"><code>expand</code></a></td>
+<td>Convert tabs to spaces</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/fmt-invocation.html#index-fmt"><code>fmt</code></a></td>
+<td>Reformat paragraph text</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/fold-invocation.html#index-fold"><code>fold</code></a></td>
+<td>Wrap input lines to fit in specified width</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/head-invocation.html#index-head"><code>head</code></a></td>
+<td>Output the first part of files</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/join-invocation.html#index-join"><code>join</code></a></td>
+<td>Join lines on a common field</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/md5sum-invocation.html#index-md5sum"><code>md5sum</code></a></td>
+<td>Print or check MD5 digests</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/nl-invocation.html#index-nl-1"><code>nl</code></a></td>
+<td>Number lines and write files</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/numfmt-invocation.html#index-numfmt"><code>numfmt</code></a></td>
+<td>Reformat numbers</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/od-invocation.html#index-od"><code>od</code></a></td>
+<td>Write files in octal or other formats</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/paste-invocation.html#index-paste"><code>paste</code></a></td>
+<td>Merge lines of files</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/ptx-invocation.html#index-ptx"><code>ptx</code></a></td>
+<td>Produces a permuted index of file contents</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/pr-invocation.html#index-pr"><code>pr</code></a></td>
+<td>Paginate or columnate files for printing</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/sha1sum-invocation.html#index-sha1sum"><code>sha1sum</code></a></td>
+<td>Print or check SHA-1 digests (length = 160 bits)</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/sha2-utilities.html#index-sha224sum"><code>sha224sum</code></a></td>
+<td>Print or check SHA-2 digests (length = 224 bits)</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/sha2-utilities.html#index-sha256sum"><code>sha256sum</code></a></td>
+<td>Print or check SHA-2 digests (length = 256 bits)</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/sha2-utilities.html#index-sha384sum"><code>sha384sum</code></a></td>
+<td>Print or check SHA-2 digests (length = 384 bits)</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/sha2-utilities.html#index-sha512sum"><code>sha512sum</code></a></td>
+<td>Print or check SHA-2 digests (length = 512 bits)</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/shuf-invocation.html#index-shuf"><code>shuf</code></a></td>
+<td>Shuffling text</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/sort-invocation.html#index-sort"><code>sort</code></a></td>
+<td>Sort text files</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/split-invocation.html#index-split"><code>split</code></a></td>
+<td>Split a file into pieces</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/sum-invocation.html#index-sum"><code>sum</code></a></td>
+<td>Print checksum and block counts</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/tac-invocation.html#index-tac"><code>tac</code></a></td>
+<td>Concatenate and write files in reverse</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/tail-invocation.html#index-tail"><code>tail</code></a></td>
+<td>Output the last part of files</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/tr-invocation.html#index-tr"><code>tr</code></a></td>
+<td>Translate, squeeze, and/or delete characters</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/tsort-invocation.html#index-tsort"><code>tsort</code></a></td>
+<td>Topological sort</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/unexpand-invocation.html#index-unexpand"><code>unexpand</code></a></td>
+<td>Convert spaces to tabs</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/uniq-invocation.html#index-uniq"><code>uniq</code></a></td>
+<td>Uniquify files</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/wc-invocation.html#index-wc"><code>wc</code></a></td>
+<td>Print newline, word, and byte counts</td>
+</tr>
+</tbody>
+</table>
+<h3 id="shell-utilities">Shell Utilities<a hidden class="anchor" aria-hidden="true" href="#shell-utilities">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/arch-invocation.html#index-arch"><code>arch</code></a></td>
+<td>Print machine hardware name</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/basename-invocation.html#index-basename"><code>basename</code></a></td>
+<td>Strip directory and suffix from a file name</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/chroot-invocation.html#index-chroot"><code>chroot</code></a></td>
+<td>Run a command with a different root directory</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/date-invocation.html#index-date"><code>date</code></a></td>
+<td>Print or set system date and time</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/dirname-invocation.html#index-dirname"><code>dirname</code></a></td>
+<td>Strip last file name component</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/du-invocation.html#index-du"><code>du</code></a></td>
+<td>Estimate file space usage</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/echo-invocation.html#index-echo-1"><code>echo</code></a></td>
+<td>Print a line of text</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/env-invocation.html#index-env"><code>env</code></a></td>
+<td>Run a command in a modified environment</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/expr-invocation.html#index-expr"><code>expr</code></a></td>
+<td>Evaluate expressions</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/factor-invocation.html#index-factor"><code>factor</code></a></td>
+<td>Print prime factors</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/false-invocation.html#index-false"><code>false</code></a></td>
+<td>Do nothing, unsuccessfully</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/groups-invocation.html#index-groups"><code>groups</code></a></td>
+<td>Print group names a user is in</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/hostid-invocation.html#index-hostid"><code>hostid</code></a></td>
+<td>Print numeric host identifier</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/id-invocation.html#index-id"><code>id</code></a></td>
+<td>Print user identity</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/link-invocation.html#index-link"><code>link</code></a></td>
+<td>Make a hard link via the link syscall</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/logname-invocation.html#index-logname"><code>logname</code></a></td>
+<td>Print current login name</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/nice-invocation.html#index-nice"><code>nice</code></a></td>
+<td>Run a command with modified niceness</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/nohup-invocation.html#index-nohup"><code>nohup</code></a></td>
+<td>Run a command immune to hangups</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/nproc-invocation.html#index-nproc"><code>nproc</code></a></td>
+<td>Print the number of available processors</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/pathchk-invocation.html#index-pathchk"><code>pathchk</code></a></td>
+<td>Check file name validity and portability</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/pinky-invocation.html"><code>pinky</code></a></td>
+<td>Print information about users</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/printenv-invocation.html#index-printenv"><code>printenv</code></a></td>
+<td>Print all or some environment variables</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/printf-invocation.html#index-printf"><code>printf</code></a></td>
+<td>Format and print data</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/pwd-invocation.html#index-pwd"><code>pwd</code></a></td>
+<td>Print working directory</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/readlink-invocation.html#index-readlink"><code>readlink</code></a></td>
+<td>Print value of a symlink or canonical file name</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/runcon-invocation.html#index-runcon"><code>runcon</code></a></td>
+<td>Run a command in specified SELinux context</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/seq-invocation.html#index-seq"><code>seq</code></a></td>
+<td>Print numeric sequences</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/sleep-invocation.html#index-sleep"><code>sleep</code></a></td>
+<td>Delay for a specified time</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/stat-invocation.html#index-stat"><code>stat</code></a></td>
+<td>Report file or file system status</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/stdbuf-invocation.html#index-stdbuf"><code>stdbuf</code></a></td>
+<td>Run a command with modified I/O stream buffering</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/stty-invocation.html#index-stty"><code>stty</code></a></td>
+<td>Print or change terminal characteristics</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/tee-invocation.html#index-tee"><code>tee</code></a></td>
+<td>Redirect output to multiple files or processes</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/test-invocation.html#index-test"><code>test</code></a></td>
+<td>Check file types and compare values</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/timeout-invocation.html#index-timeout"><code>timeout</code></a></td>
+<td>Run a command with a time limit</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/true-invocation.html#index-true"><code>true</code></a></td>
+<td>Do nothing, successfully</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/tty-invocation.html#index-tty"><code>tty</code></a></td>
+<td>Print file name of terminal on standard input</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/uname-invocation.html#index-uname"><code>uname</code></a></td>
+<td>Print system information</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/unlink-invocation.html#index-unlink"><code>unlink</code></a></td>
+<td>Remove files via the unlink syscall</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/uptime-invocation.html#index-uptime"><code>uptime</code></a></td>
+<td>Print system uptime and load</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/users-invocation.html#index-users"><code>users</code></a></td>
+<td>Print login names of users currently logged in</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/who-invocation.html#index-who"><code>who</code></a></td>
+<td>Print who is currently logged in</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/whoami-invocation.html#index-whoami"><code>whoami</code></a></td>
+<td>Print effective user name</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/yes-invocation.html#index-yes"><code>yes</code></a></td>
+<td>Print a string until interrupted</td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/coreutils/manual/html_node/test-invocation.html#index-_005b"><code>[</code></a></td>
+<td>Check file types and compare values</td>
+</tr>
+</tbody>
+</table>
+<h3 id="references">References<a hidden class="anchor" aria-hidden="true" href="#references">¶</a></h3>
+<ul>
+<li><a href="https://www.gnu.org/software/coreutils/manual/html_node/index.html">GNU Coreutils</a></li>
+<li><a href="https://www.gnu.org/software/coreutils/manual/html_node/Concept-index.html">GNU Coreutils Index</a></li>
+<li><a href="https://www.gnu.org/">GNU Project Homepage</a></li>
+<li><a href="https://en.wikipedia.org/wiki/List_of_GNU_Core_Utilities_commands">Wikipedia: List Of GNU Core Utilities Commands</a></li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+
+  </footer>
+    <div class="comments-separator"></div>
+</article>
+    </main>
+    
+<footer class="footer">
+  <span>&copy; 2024 <a href="https://tuxxuser.github.io/">Reidar&#39;s Notebook</a></span><span style="display: inline-block; margin-left: 1em;">
+    <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA</a>
+  </span>
+  <span style="display: inline-block; margin-left: 1em;">
+    Powered by
+    <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+    <a href="https://github.com/reorx/hugo-PaperModX/" rel="noopener" target="_blank">PaperModX</a>
+  </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+    <path d="M12 6H0l6-6z" />
+  </svg>
+</a>
+
+<script>
+  (function() {
+     
+    const disableThemeToggle = '' == '1';
+    if (disableThemeToggle) {
+      return;
+    }
+
+    let button = document.getElementById("theme-toggle")
+    
+    button.removeEventListener('click', toggleThemeListener)
+    
+    button.addEventListener('click', toggleThemeListener)
+  })();
+</script>
+
+<script>
+  (function () {
+    let menu = document.getElementById('menu')
+    if (menu) {
+      menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+      menu.onscroll = function () {
+        localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+      }
+    }
+
+    const disableSmoothScroll = '' == '1';
+    const enableInstantClick = '' == '1';
+    
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || disableSmoothScroll || enableInstantClick) {
+      return;
+    }
+    
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+        var id = this.getAttribute("href").substr(1);
+        document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+          behavior: "smooth"
+        });
+        if (id === "top") {
+          history.replaceState(null, null, " ");
+        } else {
+          history.pushState(null, null, `#${id}`);
+        }
+      });
+    });
+  })();
+</script>
+<script>
+  var mybutton = document.getElementById("top-link");
+  window.onscroll = function () {
+    if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+      mybutton.style.visibility = "visible";
+      mybutton.style.opacity = "1";
+    } else {
+      mybutton.style.visibility = "hidden";
+      mybutton.style.opacity = "0";
+    }
+  };
+</script>
+<script>
+  if (window.scrollListeners) {
+    
+    for (const listener of scrollListeners) {
+      window.removeEventListener('scroll', listener)
+    }
+  }
+  window.scrollListeners = []
+</script>
+
+
+
+<script src="/js/medium-zoom.min.js" data-no-instant
+></script>
+
+
+
+
+<script>
+  
+  
+  (function() {
+    const enableTocScroll = '' == '1'
+    if (!enableTocScroll) {
+      return
+    }
+    if (!document.querySelector('.toc')) {
+      console.log('no toc found, ignore toc scroll')
+      return
+    }
+    
+
+    
+    const scrollListeners = window.scrollListeners
+    const headings = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id]');
+    const activeClass = 'active';
+
+    
+    let activeHeading = headings[0];
+    getLinkByHeading(activeHeading).classList.add(activeClass);
+
+    const onScroll = () => {
+      const passedHeadings = [];
+      for (const h of headings) {
+        
+        if (getOffsetTop(h) < 5) {
+          passedHeadings.push(h)
+        } else {
+          break;
+        }
+      }
+      if (passedHeadings.length > 0) {
+        newActiveHeading = passedHeadings[passedHeadings.length - 1];
+      } else {
+        newActiveHeading = headings[0];
+      }
+      if (activeHeading != newActiveHeading) {
+        getLinkByHeading(activeHeading).classList.remove(activeClass);
+        activeHeading = newActiveHeading;
+        getLinkByHeading(activeHeading).classList.add(activeClass);
+      }
+    }
+
+    let timer = null;
+    const scrollListener = () => {
+      if (timer !== null) {
+        clearTimeout(timer)
+      }
+      timer = setTimeout(onScroll, 50)
+    }
+    window.addEventListener('scroll', scrollListener, false);
+    scrollListeners.push(scrollListener)
+
+    function getLinkByHeading(heading) {
+      const id = encodeURI(heading.getAttribute('id')).toLowerCase();
+      return document.querySelector(`.toc ul li a[href="#${id}"]`);
+    }
+
+    function getOffsetTop(heading) {
+      if (!heading.getClientRects().length) {
+        return 0;
+      }
+      let rect = heading.getBoundingClientRect();
+      return rect.top
+    }
+  })();
+  </script>
+
+</body>
+
+</html>
