@@ -1,3 +1,0 @@
-# About
-
-Public website
