@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Windows 11 on Reidar&#39;s Notebook</title>
+    <link>https://tuxxuser.github.io/tags/windows-11/</link>
+    <description>Recent content in Windows 11 on Reidar&#39;s Notebook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 01 Sep 2024 20:19:00 +0300</lastBuildDate><atom:link href="https://tuxxuser.github.io/tags/windows-11/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Proxmox - Create Virtual Machine for Windows 11</title>
+      <link>https://tuxxuser.github.io/posts/2024/proxmox-create-win11vm-20240831-1942/</link>
+      <pubDate>Sun, 01 Sep 2024 20:19:00 +0300</pubDate>
+      
+      <guid>https://tuxxuser.github.io/posts/2024/proxmox-create-win11vm-20240831-1942/</guid>
+      <description>This guide provides basic steps, on how to create a virtual machine for Windows 11 in Proxmox.
+Microsoft Windows 11 hardware requirements To install or upgrade to Windows 11, devices must meet the following minimum hardware requirements:
+Component Description Processor 1 GHz or faster with 2 and more cores, 64-bit Memory 4 GB or greater Storage 64 GB or more Graphics card Compatible with DirectX or later, with WDDM 2.0 driver System firmware UEFI, Secure Boot capable TPM Trusted Platform Module (TPM) version 2.</description>
+      <content:encoded><![CDATA[<p>This guide provides basic steps, on how to create a virtual machine for Windows 11 in Proxmox.</p>
+<h2 id="microsoft-windows-11-hardware-requirements">Microsoft Windows 11 hardware requirements</h2>
+<p>To install or upgrade to Windows 11, devices must meet the following minimum hardware requirements:</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Processor</td>
+<td>1 GHz or faster with 2 and more cores, 64-bit</td>
+</tr>
+<tr>
+<td>Memory</td>
+<td>4 GB or greater</td>
+</tr>
+<tr>
+<td>Storage</td>
+<td>64 GB or more</td>
+</tr>
+<tr>
+<td>Graphics card</td>
+<td>Compatible with DirectX or later, with WDDM 2.0 driver</td>
+</tr>
+<tr>
+<td>System firmware</td>
+<td>UEFI, Secure Boot capable</td>
+</tr>
+<tr>
+<td>TPM</td>
+<td>Trusted Platform Module (TPM) version 2.0</td>
+</tr>
+<tr>
+<td>Display</td>
+<td>High definition (720p) display, 9&quot; or greater, 8 bits per color channel</td>
+</tr>
+<tr>
+<td>Internet connection</td>
+<td>Used to perform updates, and to download and use some features</td>
+</tr>
+</tbody>
+</table>
+<h2 id="creating-virtual-machine">Creating virtual machine</h2>
+<h3 id="start-vm-creation-wizard">Start VM creation wizard</h3>
+<p>Log on to the Proxmox server, select node (e.g. <code>proxmox</code>) and press <code>Create VM</code>. Alternatively, you can right-click on the Proxmox node and select <code>Create VM</code></p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/s1-proxmox-create-vm.png"/> 
+</figure>
+
+<h3 id="general">General</h3>
+<p>On the <code>General</code> tab, select and provide the following information:</p>
+<table>
+<thead>
+<tr>
+<th>Setting name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Node</code></td>
+<td>Select proxmox node where VM is created (e.g. <code>proxmox</code>)</td>
+</tr>
+<tr>
+<td><code>VM ID</code></td>
+<td>Value is populated automatically and can be changed</td>
+</tr>
+<tr>
+<td><code>Name</code></td>
+<td>Provide VM name, e.g. <code>Win11-x64-enUS</code></td>
+</tr>
+<tr>
+<td><code>Resource Pool</code></td>
+<td>Select resource pool, available on your proxmox (e.g. <code>Production</code>)</td>
+</tr>
+</tbody>
+</table>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/s2-proxmox-general.png"/> 
+</figure>
+
+<h3 id="os">OS</h3>
+<ol>
+<li>Select <code>Use CD/DVD disc image file (iso)</code></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Setting name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Storage</code></td>
+<td>This is name of the repository, where installation ISO images are stored</td>
+</tr>
+<tr>
+<td><code>ISO image</code></td>
+<td>Name of the ISO image</td>
+</tr>
+</tbody>
+</table>
+<ol start="2">
+<li>Under <code>Guest OS</code> set the following settings:</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Setting name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Type</code></td>
+<td>Select OS type - <code>Microsoft Windows</code></td>
+</tr>
+<tr>
+<td><code>Version</code></td>
+<td>Select OS version - <code>11/2022/2025</code></td>
+</tr>
+</tbody>
+</table>
+<ol start="3">
+<li>Activate the option <code>Add additional drive for VirtIO drivers</code>. This option will add a drive for VirtIO drivers.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Setting name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Storage</code></td>
+<td>This is name of the repository, where VirtIO driver ISO is located</td>
+</tr>
+<tr>
+<td><code>ISO image</code></td>
+<td>VirtIO driver ISO name</td>
+</tr>
+</tbody>
+</table>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/s3-proxmox-os.png"/> 
+</figure>
+
+<p>VirtIO driver ISO can be downloaded:</p>
+<ul>
+<li><a href="https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso">Stable</a></li>
+<li><a href="https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/latest-virtio/virtio-win.iso">Latest</a></li>
+</ul>
+<h3 id="disks">Disks</h3>
+<p>Select <code>Disk</code> and use the following settings:</p>
+<table>
+<thead>
+<tr>
+<th>Setting name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Bus/Device</code></td>
+<td>Select storage device - in this example <code>VirtIO Block</code></td>
+</tr>
+<tr>
+<td><code>Storage</code></td>
+<td>Location where virtual storage device is created</td>
+</tr>
+<tr>
+<td><code>Disk size (GB)</code></td>
+<td>Virtual disk size. For Windows 11, we can set minimum size of 64 GB</td>
+</tr>
+</tbody>
+</table>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/s4-proxmox-disk.png"/> 
+</figure>
+
+<h3 id="cpu">CPU</h3>
+<p>Under <code>CPU</code> tab select <code>CPU Type</code> and the amount of <code>CPU Cores</code>.</p>
+<p>In this example, we set <code>CPU Type = host</code> and number of <code>CPU Cores = 4</code></p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/s5-proxmox-cpu.png"/> 
+</figure>
+
+<h3 id="memory">Memory</h3>
+<p>Set the amount of memory (RAM) for the guest OS. For Windows, we set 8 GB (8192 MB).</p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/s6-proxmox-memory.png"/> 
+</figure>
+
+<h3 id="network">Network</h3>
+<p>Under the <code>Network</code> tab <code>Bridge</code>, select the network adapter and also select <code>Model</code> (in this example VirtIO (paravirtualized))</p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/s7-proxmox-network.png"/> 
+</figure>
+
+<h3 id="confirm">Confirm</h3>
+<p>Finally, confirm (press <code>Finish</code>) all settings to create a virtual machine.</p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/s8-proxmox-confirm.png"/> 
+</figure>
+
+<h3 id="references">References</h3>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/windows/whats-new/windows-11-requirements">Microsoft Windows 11 requirements</a></li>
+<li><a href="https://pve.proxmox.com/wiki/Windows_VirtIO_Drivers">Windows VirtIO Drivers</a></li>
+</ul>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>
