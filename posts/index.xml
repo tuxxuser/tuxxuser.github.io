@@ -6,13 +6,142 @@
     <description>Recent content in Posts on Reidar&#39;s Notebook</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 01 Sep 2024 20:19:00 +0300</lastBuildDate><atom:link href="https://tuxxuser.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 03 Sep 2024 20:16:36 +0300</lastBuildDate><atom:link href="https://tuxxuser.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker Management Commands</title>
+      <link>https://tuxxuser.github.io/posts/2024/docker-management-cmd/</link>
+      <pubDate>Tue, 03 Sep 2024 20:16:36 +0300</pubDate>
+      
+      <guid>https://tuxxuser.github.io/posts/2024/docker-management-cmd/</guid>
+      <description>Docker Management Commands Command Description docker build -t FRIENDLYNAME . Create image using this directory&amp;rsquo;s Dockerfile docker container run -p 4000:80 FRIENDLYNAME Run &amp;ldquo;friendlyname&amp;rdquo; mapping port 4000 to 80 docker container run -d -p 4000:80 FRIENDLYNAME Same thing, but in detached mode docker container run -ti FRIENDLYNAME Run &amp;ldquo;friendlyname&amp;rdquo; in interactive mode docker container ls List all running containers docker container ls -a List all containers, even those not running docker container exec -it CONTAINER_ID_HASH bash Interacts with container and executes bash docker container stop CONTAINER_ID_HASH Gracefully stop the specified container docker container kill CONTAINER_ID_HASH Force shutdown of the specified container docker container rm CONTAINER_ID_HASH Remove specified container from this machine docker container prune Remove all stopped containers docker volume create VOLUME-NAME Creates a named volume with the default driver docker volume inspect VOLUME-NAME Prints out details about the given volume entity docker volume rm VOLUME-NAME Removes the given volume from the system docker image ls -a List all images on this machine docker image rm IMAGE-ID Remove specified image from this machine docker image prune Remove all &amp;lsquo;dangling&amp;rsquo; images from this machine docker image prune -a Remove all images without at least one container associated to them docker system prune Delete all unused data; containers, volumes and images w.</description>
+      <content:encoded><![CDATA[<h2 id="docker-management-commands">Docker Management Commands</h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>docker build -t FRIENDLYNAME .</code></td>
+<td>Create image using this directory&rsquo;s Dockerfile</td>
+</tr>
+<tr>
+<td><code>docker container run -p 4000:80 FRIENDLYNAME</code></td>
+<td>Run &ldquo;friendlyname&rdquo; mapping port 4000 to 80</td>
+</tr>
+<tr>
+<td><code>docker container run -d -p 4000:80 FRIENDLYNAME</code></td>
+<td>Same thing, but in detached mode</td>
+</tr>
+<tr>
+<td><code>docker container run -ti FRIENDLYNAME</code></td>
+<td>Run &ldquo;friendlyname&rdquo; in interactive mode</td>
+</tr>
+<tr>
+<td><code>docker container ls</code></td>
+<td>List all running containers</td>
+</tr>
+<tr>
+<td><code>docker container ls -a</code></td>
+<td>List all containers, even those not running</td>
+</tr>
+<tr>
+<td><code>docker container exec -it CONTAINER_ID_HASH bash</code></td>
+<td>Interacts with container and executes bash</td>
+</tr>
+<tr>
+<td><code>docker container stop CONTAINER_ID_HASH</code></td>
+<td>Gracefully stop the specified container</td>
+</tr>
+<tr>
+<td><code>docker container kill CONTAINER_ID_HASH</code></td>
+<td>Force shutdown of the specified container</td>
+</tr>
+<tr>
+<td><code>docker container rm CONTAINER_ID_HASH</code></td>
+<td>Remove specified container from this machine</td>
+</tr>
+<tr>
+<td><code>docker container prune</code></td>
+<td>Remove all stopped containers</td>
+</tr>
+<tr>
+<td><code>docker volume create VOLUME-NAME</code></td>
+<td>Creates a named volume with the default driver</td>
+</tr>
+<tr>
+<td><code>docker volume inspect VOLUME-NAME</code></td>
+<td>Prints out details about the given volume entity</td>
+</tr>
+<tr>
+<td><code>docker volume rm VOLUME-NAME</code></td>
+<td>Removes the given volume from the system</td>
+</tr>
+<tr>
+<td><code>docker image ls -a</code></td>
+<td>List all images on this machine</td>
+</tr>
+<tr>
+<td><code>docker image rm IMAGE-ID</code></td>
+<td>Remove specified image from this machine</td>
+</tr>
+<tr>
+<td><code>docker image prune</code></td>
+<td>Remove all &lsquo;dangling&rsquo; images from this machine</td>
+</tr>
+<tr>
+<td><code>docker image prune -a</code></td>
+<td>Remove all images without at least one container associated to them</td>
+</tr>
+<tr>
+<td><code>docker system prune</code></td>
+<td>Delete all unused data; containers, volumes and images w.o. containers</td>
+</tr>
+<tr>
+<td><code>docker system df -v</code></td>
+<td>Presents a summary of the space used by different docker objects</td>
+</tr>
+<tr>
+<td><code>docker login</code></td>
+<td>Log in this CLI session using your Docker credentials</td>
+</tr>
+<tr>
+<td><code>docker tag &lt;image&gt; username/repository:tag</code></td>
+<td>Tag <!-- raw HTML omitted --> for upload to registry</td>
+</tr>
+<tr>
+<td><code>docker push username/repository:tag</code></td>
+<td>Upload tagged image to registry</td>
+</tr>
+<tr>
+<td><code>docker run username/repository:tag</code></td>
+<td>Run image from a registry</td>
+</tr>
+<tr>
+<td><code>Ctrl + P, Ctrl + Q</code></td>
+<td>Detach from container you&rsquo;re in, but keep it running</td>
+</tr>
+<tr>
+<td><code>Ctrl + D</code></td>
+<td>Detach from container you&rsquo;re in, and stop it, same as exit</td>
+</tr>
+</tbody>
+</table>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://docs.docker.com/reference/cli/docker/">Docker Reference Documentation</a></li>
+</ul>
+]]></content:encoded>
+    </item>
+    
     <item>
       <title>Create Windows 11 Virtual Machine in Proxmox</title>
-      <link>https://tuxxuser.github.io/posts/2024/proxmox-create-win11vm-20240831-1942/</link>
+      <link>https://tuxxuser.github.io/posts/2024/proxmox-create-win11vm/</link>
       <pubDate>Sun, 01 Sep 2024 20:19:00 +0300</pubDate>
       
-      <guid>https://tuxxuser.github.io/posts/2024/proxmox-create-win11vm-20240831-1942/</guid>
+      <guid>https://tuxxuser.github.io/posts/2024/proxmox-create-win11vm/</guid>
       <description>This guide provides basic steps, on how to create a virtual machine for Windows 11 in Proxmox.
 Microsoft Windows 11 hardware requirements To install or upgrade to Windows 11, devices must meet the following minimum hardware requirements:
 Component Description Processor 1 GHz or faster with 2 and more cores, 64-bit Memory 4 GB or greater Storage 64 GB or more Graphics card Compatible with DirectX or later, with WDDM 2.0 driver System firmware UEFI, Secure Boot capable TPM Trusted Platform Module (TPM) version 2.</description>
@@ -236,10 +365,10 @@ Component Description Processor 1 GHz or faster with 2 and more cores, 64-bit Me
     
     <item>
       <title>GNU Coreutils</title>
-      <link>https://tuxxuser.github.io/posts/2024/gnu-coreutils-20240829-1531/</link>
+      <link>https://tuxxuser.github.io/posts/2024/gnu-coreutils/</link>
       <pubDate>Thu, 29 Aug 2024 15:31:31 +0300</pubDate>
       
-      <guid>https://tuxxuser.github.io/posts/2024/gnu-coreutils-20240829-1531/</guid>
+      <guid>https://tuxxuser.github.io/posts/2024/gnu-coreutils/</guid>
       <description>Core utilities (often called &amp;ldquo;coreutils&amp;rdquo;) are the basic, fundamental command-line tools of a GNU/Linux system. These utilities provide basic file, shell, and text manipulation operations. The core utilities are part of the GNU Project and are used in most Linux distributions.
 List of GNU Core Utilities commands Following is a list of commands from the GNU Core Utilities for Unix (and Unix-like) operating systems.
 File Utilities Name Description chcon Changes (SELinux) file security context chgrp Change group ownership chown Change file owner and group chmod Change (file) access permissions cp Copy files and directories dd Convert and copy a file df Report file system space usage dir Briefly list directory contents (equivalent to ls -C -b) dircolors Color setup for ls install Copy files and set attributes ln Make links between files ls List directory contents mkdir Make directories mkfifo Make FIFOs (named pipes) mknod Make block or character special files mktemp Create temporary file or directory mv Move (rename) files realpath Print the resolved file name rm Remove files or directories rmdir Remove empty directories shred Remove files more securely sync Flushes file system buffers touch Change file timestamps truncate Shrink or extend the size of a file vdir Verbosely list directory contents (equivalent to ls -C -b) Text Utilities Name Description b2sum Print or check BLAKE2 digests base32 Encodes or decodes Base32, and prints result to stdout base64 Encodes or decodes Base64, and prints result to stdout cat Concatenate and write files cksum Print and verify file checksums comm Compare two sorted files line by line csplit Split a file into context-determined pieces	p cut Print selected parts of lines expand Convert tabs to spaces fmt Reformat paragraph text fold Wrap input lines to fit in specified width head Output the first part of files join Join lines on a common field md5sum Print or check MD5 digests nl Number lines and write files numfmt Reformat numbers od Write files in octal or other formats paste Merge lines of files ptx Produces a permuted index of file contents pr Paginate or columnate files for printing sha1sum Print or check SHA-1 digests (length = 160 bits) sha224sum Print or check SHA-2 digests (length = 224 bits) sha256sum Print or check SHA-2 digests (length = 256 bits) sha384sum Print or check SHA-2 digests (length = 384 bits) sha512sum Print or check SHA-2 digests (length = 512 bits) shuf Shuffling text sort Sort text files split Split a file into pieces sum Print checksum and block counts tac Concatenate and write files in reverse tail Output the last part of files tr Translate, squeeze, and/or delete characters tsort Topological sort unexpand Convert spaces to tabs uniq Uniquify files wc Print newline, word, and byte counts Shell Utilities Name Description arch Print machine hardware name basename Strip directory and suffix from a file name chroot Run a command with a different root directory date Print or set system date and time dirname Strip last file name component du Estimate file space usage echo Print a line of text env Run a command in a modified environment expr Evaluate expressions factor Print prime factors false Do nothing, unsuccessfully groups Print group names a user is in hostid Print numeric host identifier id Print user identity link Make a hard link via the link syscall logname Print current login name nice Run a command with modified niceness nohup Run a command immune to hangups nproc Print the number of available processors pathchk Check file name validity and portability pinky Print information about users printenv Print all or some environment variables printf Format and print data pwd Print working directory readlink Print value of a symlink or canonical file name runcon Run a command in specified SELinux context seq Print numeric sequences sleep Delay for a specified time stat Report file or file system status stdbuf Run a command with modified I/O stream buffering stty Print or change terminal characteristics tee Redirect output to multiple files or processes test Check file types and compare values timeout Run a command with a time limit true Do nothing, successfully tty Print file name of terminal on standard input uname Print system information unlink Remove files via the unlink syscall uptime Print system uptime and load users Print login names of users currently logged in who Print who is currently logged in whoami Print effective user name yes Print a string until interrupted [ Check file types and compare values References GNU Coreutils GNU Coreutils Index GNU Project Homepage Wikipedia: List Of GNU Core Utilities Commands Vikipedia: Coreutils </description>

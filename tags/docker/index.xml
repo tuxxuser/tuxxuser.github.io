@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Docker on Reidar&#39;s Notebook</title>
+    <link>https://tuxxuser.github.io/tags/docker/</link>
+    <description>Recent content in Docker on Reidar&#39;s Notebook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 03 Sep 2024 20:16:36 +0300</lastBuildDate><atom:link href="https://tuxxuser.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker Management Commands</title>
+      <link>https://tuxxuser.github.io/posts/2024/docker-management-cmd/</link>
+      <pubDate>Tue, 03 Sep 2024 20:16:36 +0300</pubDate>
+      
+      <guid>https://tuxxuser.github.io/posts/2024/docker-management-cmd/</guid>
+      <description>Docker Management Commands Command Description docker build -t FRIENDLYNAME . Create image using this directory&amp;rsquo;s Dockerfile docker container run -p 4000:80 FRIENDLYNAME Run &amp;ldquo;friendlyname&amp;rdquo; mapping port 4000 to 80 docker container run -d -p 4000:80 FRIENDLYNAME Same thing, but in detached mode docker container run -ti FRIENDLYNAME Run &amp;ldquo;friendlyname&amp;rdquo; in interactive mode docker container ls List all running containers docker container ls -a List all containers, even those not running docker container exec -it CONTAINER_ID_HASH bash Interacts with container and executes bash docker container stop CONTAINER_ID_HASH Gracefully stop the specified container docker container kill CONTAINER_ID_HASH Force shutdown of the specified container docker container rm CONTAINER_ID_HASH Remove specified container from this machine docker container prune Remove all stopped containers docker volume create VOLUME-NAME Creates a named volume with the default driver docker volume inspect VOLUME-NAME Prints out details about the given volume entity docker volume rm VOLUME-NAME Removes the given volume from the system docker image ls -a List all images on this machine docker image rm IMAGE-ID Remove specified image from this machine docker image prune Remove all &amp;lsquo;dangling&amp;rsquo; images from this machine docker image prune -a Remove all images without at least one container associated to them docker system prune Delete all unused data; containers, volumes and images w.</description>
+      <content:encoded><![CDATA[<h2 id="docker-management-commands">Docker Management Commands</h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>docker build -t FRIENDLYNAME .</code></td>
+<td>Create image using this directory&rsquo;s Dockerfile</td>
+</tr>
+<tr>
+<td><code>docker container run -p 4000:80 FRIENDLYNAME</code></td>
+<td>Run &ldquo;friendlyname&rdquo; mapping port 4000 to 80</td>
+</tr>
+<tr>
+<td><code>docker container run -d -p 4000:80 FRIENDLYNAME</code></td>
+<td>Same thing, but in detached mode</td>
+</tr>
+<tr>
+<td><code>docker container run -ti FRIENDLYNAME</code></td>
+<td>Run &ldquo;friendlyname&rdquo; in interactive mode</td>
+</tr>
+<tr>
+<td><code>docker container ls</code></td>
+<td>List all running containers</td>
+</tr>
+<tr>
+<td><code>docker container ls -a</code></td>
+<td>List all containers, even those not running</td>
+</tr>
+<tr>
+<td><code>docker container exec -it CONTAINER_ID_HASH bash</code></td>
+<td>Interacts with container and executes bash</td>
+</tr>
+<tr>
+<td><code>docker container stop CONTAINER_ID_HASH</code></td>
+<td>Gracefully stop the specified container</td>
+</tr>
+<tr>
+<td><code>docker container kill CONTAINER_ID_HASH</code></td>
+<td>Force shutdown of the specified container</td>
+</tr>
+<tr>
+<td><code>docker container rm CONTAINER_ID_HASH</code></td>
+<td>Remove specified container from this machine</td>
+</tr>
+<tr>
+<td><code>docker container prune</code></td>
+<td>Remove all stopped containers</td>
+</tr>
+<tr>
+<td><code>docker volume create VOLUME-NAME</code></td>
+<td>Creates a named volume with the default driver</td>
+</tr>
+<tr>
+<td><code>docker volume inspect VOLUME-NAME</code></td>
+<td>Prints out details about the given volume entity</td>
+</tr>
+<tr>
+<td><code>docker volume rm VOLUME-NAME</code></td>
+<td>Removes the given volume from the system</td>
+</tr>
+<tr>
+<td><code>docker image ls -a</code></td>
+<td>List all images on this machine</td>
+</tr>
+<tr>
+<td><code>docker image rm IMAGE-ID</code></td>
+<td>Remove specified image from this machine</td>
+</tr>
+<tr>
+<td><code>docker image prune</code></td>
+<td>Remove all &lsquo;dangling&rsquo; images from this machine</td>
+</tr>
+<tr>
+<td><code>docker image prune -a</code></td>
+<td>Remove all images without at least one container associated to them</td>
+</tr>
+<tr>
+<td><code>docker system prune</code></td>
+<td>Delete all unused data; containers, volumes and images w.o. containers</td>
+</tr>
+<tr>
+<td><code>docker system df -v</code></td>
+<td>Presents a summary of the space used by different docker objects</td>
+</tr>
+<tr>
+<td><code>docker login</code></td>
+<td>Log in this CLI session using your Docker credentials</td>
+</tr>
+<tr>
+<td><code>docker tag &lt;image&gt; username/repository:tag</code></td>
+<td>Tag <!-- raw HTML omitted --> for upload to registry</td>
+</tr>
+<tr>
+<td><code>docker push username/repository:tag</code></td>
+<td>Upload tagged image to registry</td>
+</tr>
+<tr>
+<td><code>docker run username/repository:tag</code></td>
+<td>Run image from a registry</td>
+</tr>
+<tr>
+<td><code>Ctrl + P, Ctrl + Q</code></td>
+<td>Detach from container you&rsquo;re in, but keep it running</td>
+</tr>
+<tr>
+<td><code>Ctrl + D</code></td>
+<td>Detach from container you&rsquo;re in, and stop it, same as exit</td>
+</tr>
+</tbody>
+</table>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://docs.docker.com/reference/cli/docker/">Docker Reference Documentation</a></li>
+</ul>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>

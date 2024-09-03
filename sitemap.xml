@@ -2,22 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://tuxxuser.github.io/tags/docker/</loc>
+    <lastmod>2024-09-03T20:16:36+03:00</lastmod>
+  </url><url>
+    <loc>https://tuxxuser.github.io/tags/docker-commands/</loc>
+    <lastmod>2024-09-03T20:16:36+03:00</lastmod>
+  </url><url>
+    <loc>https://tuxxuser.github.io/posts/2024/docker-management-cmd/</loc>
+    <lastmod>2024-09-03T20:16:36+03:00</lastmod>
+  </url><url>
+    <loc>https://tuxxuser.github.io/posts/</loc>
+    <lastmod>2024-09-03T20:16:36+03:00</lastmod>
+  </url><url>
+    <loc>https://tuxxuser.github.io/</loc>
+    <lastmod>2024-09-03T20:16:36+03:00</lastmod>
+  </url><url>
+    <loc>https://tuxxuser.github.io/tags/</loc>
+    <lastmod>2024-09-03T20:16:36+03:00</lastmod>
+  </url><url>
     <loc>https://tuxxuser.github.io/tags/8.2/</loc>
     <lastmod>2024-09-01T20:19:00+03:00</lastmod>
   </url><url>
-    <loc>https://tuxxuser.github.io/posts/2024/proxmox-create-win11vm-20240831-1942/</loc>
-    <lastmod>2024-09-01T20:19:00+03:00</lastmod>
-  </url><url>
-    <loc>https://tuxxuser.github.io/posts/</loc>
+    <loc>https://tuxxuser.github.io/posts/2024/proxmox-create-win11vm/</loc>
     <lastmod>2024-09-01T20:19:00+03:00</lastmod>
   </url><url>
     <loc>https://tuxxuser.github.io/tags/proxmox/</loc>
-    <lastmod>2024-09-01T20:19:00+03:00</lastmod>
-  </url><url>
-    <loc>https://tuxxuser.github.io/</loc>
-    <lastmod>2024-09-01T20:19:00+03:00</lastmod>
-  </url><url>
-    <loc>https://tuxxuser.github.io/tags/</loc>
     <lastmod>2024-09-01T20:19:00+03:00</lastmod>
   </url><url>
     <loc>https://tuxxuser.github.io/tags/virtual-machine/</loc>
@@ -38,7 +47,7 @@
     <loc>https://tuxxuser.github.io/tags/gnu-coreutils/</loc>
     <lastmod>2024-08-29T15:31:31+03:00</lastmod>
   </url><url>
-    <loc>https://tuxxuser.github.io/posts/2024/gnu-coreutils-20240829-1531/</loc>
+    <loc>https://tuxxuser.github.io/posts/2024/gnu-coreutils/</loc>
     <lastmod>2024-08-29T15:31:31+03:00</lastmod>
   </url><url>
     <loc>https://tuxxuser.github.io/archive/</loc>
