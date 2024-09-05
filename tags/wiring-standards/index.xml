@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Wiring Standards on Reidar&#39;s Notebook</title>
-    <link>http://localhost:1313/tags/wiring-standards/</link>
+    <link>https://tuxxuser.github.io/tags/wiring-standards/</link>
     <description>Recent content in Wiring Standards on Reidar&#39;s Notebook</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 05 Sep 2024 19:46:58 +0300</lastBuildDate><atom:link href="http://localhost:1313/tags/wiring-standards/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 05 Sep 2024 19:46:58 +0300</lastBuildDate><atom:link href="https://tuxxuser.github.io/tags/wiring-standards/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ethernet Cable Wiring Standards</title>
-      <link>http://localhost:1313/posts/2024/wiring-standards/</link>
+      <link>https://tuxxuser.github.io/posts/2024/wiring-standards/</link>
       <pubDate>Thu, 05 Sep 2024 19:46:58 +0300</pubDate>
       
-      <guid>http://localhost:1313/posts/2024/wiring-standards/</guid>
+      <guid>https://tuxxuser.github.io/posts/2024/wiring-standards/</guid>
       <description>There are different types of ethernet cable wiring standards available:
 T568A T568B Straight-through Crossover Rolled/rollover T568A For T568A, the green pair is used for pins 1 and 2 but the orange pair is split to pins 3 and 6, separated by the blue pair.
 Side One Pin Color Side Two Pin Color 1 White-Green 1 White-Green 2 Green 2 Green 3 White-Orange 3 White-Orange 4 Blue 4 Blue 5 White-Blue 5 White-Blue 6 Orange 6 Orange 7 White-Brown 7 White-Brown 8 Brown 8 Brown T568B For T568B, the orange pair is pins 1 and 2 and the green pair is pins 3 and 6, again separated by the blue pair.</description>

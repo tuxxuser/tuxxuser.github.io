@@ -2,10 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://tuxxuser.github.io/tags/ethernet/</loc>
+    <lastmod>2024-09-05T19:46:58+03:00</lastmod>
+  </url><url>
+    <loc>https://tuxxuser.github.io/posts/2024/wiring-standards/</loc>
+    <lastmod>2024-09-05T19:46:58+03:00</lastmod>
+  </url><url>
     <loc>https://tuxxuser.github.io/posts/</loc>
     <lastmod>2024-09-05T19:46:58+03:00</lastmod>
   </url><url>
     <loc>https://tuxxuser.github.io/</loc>
+    <lastmod>2024-09-05T19:46:58+03:00</lastmod>
+  </url><url>
+    <loc>https://tuxxuser.github.io/tags/</loc>
+    <lastmod>2024-09-05T19:46:58+03:00</lastmod>
+  </url><url>
+    <loc>https://tuxxuser.github.io/tags/wiring-standards/</loc>
     <lastmod>2024-09-05T19:46:58+03:00</lastmod>
   </url><url>
     <loc>https://tuxxuser.github.io/tags/docker/</loc>
@@ -15,9 +27,6 @@
     <lastmod>2024-09-03T20:16:36+03:00</lastmod>
   </url><url>
     <loc>https://tuxxuser.github.io/posts/2024/docker-management-cmd/</loc>
-    <lastmod>2024-09-03T20:16:36+03:00</lastmod>
-  </url><url>
-    <loc>https://tuxxuser.github.io/tags/</loc>
     <lastmod>2024-09-03T20:16:36+03:00</lastmod>
   </url><url>
     <loc>https://tuxxuser.github.io/tags/8.2/</loc>
