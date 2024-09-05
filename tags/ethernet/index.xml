@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Ethernet on Reidar&#39;s Notebook</title>
+    <link>http://localhost:1313/tags/ethernet/</link>
+    <description>Recent content in Ethernet on Reidar&#39;s Notebook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 05 Sep 2024 19:46:58 +0300</lastBuildDate><atom:link href="http://localhost:1313/tags/ethernet/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ethernet Cable Wiring Standards</title>
+      <link>http://localhost:1313/posts/2024/wiring-standards/</link>
+      <pubDate>Thu, 05 Sep 2024 19:46:58 +0300</pubDate>
+      
+      <guid>http://localhost:1313/posts/2024/wiring-standards/</guid>
+      <description>There are different types of ethernet cable wiring standards available:
+T568A T568B Straight-through Crossover Rolled/rollover T568A For T568A, the green pair is used for pins 1 and 2 but the orange pair is split to pins 3 and 6, separated by the blue pair.
+Side One Pin Color Side Two Pin Color 1 White-Green 1 White-Green 2 Green 2 Green 3 White-Orange 3 White-Orange 4 Blue 4 Blue 5 White-Blue 5 White-Blue 6 Orange 6 Orange 7 White-Brown 7 White-Brown 8 Brown 8 Brown T568B For T568B, the orange pair is pins 1 and 2 and the green pair is pins 3 and 6, again separated by the blue pair.</description>
+      <content:encoded><![CDATA[<p>There are different types of ethernet cable wiring standards available:</p>
+<ul>
+<li>T568A</li>
+<li>T568B</li>
+<li>Straight-through</li>
+<li>Crossover</li>
+<li>Rolled/rollover</li>
+</ul>
+<h2 id="t568a">T568A</h2>
+<p>For T568A, the green pair is used for pins 1 and 2 but the orange pair is split to pins 3 and 6, separated by the blue pair.</p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/t568a-1.png"/> 
+</figure>
+
+<figure>
+    <img loading="lazy" src="/posts/2024/images/t568a-2.png"/> 
+</figure>
+
+<table>
+<thead>
+<tr>
+<th>Side One Pin</th>
+<th>Color</th>
+<th>Side Two Pin</th>
+<th>Color</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>White-Green</td>
+<td>1</td>
+<td>White-Green</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Green</td>
+<td>2</td>
+<td>Green</td>
+</tr>
+<tr>
+<td>3</td>
+<td>White-Orange</td>
+<td>3</td>
+<td>White-Orange</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Blue</td>
+<td>4</td>
+<td>Blue</td>
+</tr>
+<tr>
+<td>5</td>
+<td>White-Blue</td>
+<td>5</td>
+<td>White-Blue</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Orange</td>
+<td>6</td>
+<td>Orange</td>
+</tr>
+<tr>
+<td>7</td>
+<td>White-Brown</td>
+<td>7</td>
+<td>White-Brown</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Brown</td>
+<td>8</td>
+<td>Brown</td>
+</tr>
+</tbody>
+</table>
+<h2 id="t568b">T568B</h2>
+<p>For T568B, the orange pair is pins 1 and 2 and the green pair is pins 3 and 6, again separated by the blue pair.</p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/t568b-1.png"/> 
+</figure>
+
+<figure>
+    <img loading="lazy" src="/posts/2024/images/t568b-2.png"/> 
+</figure>
+
+<table>
+<thead>
+<tr>
+<th>Side One Pin</th>
+<th>Color</th>
+<th>Side Two Pin</th>
+<th>Color</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>White-Orange</td>
+<td>1</td>
+<td>White-Orange</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Orange</td>
+<td>2</td>
+<td>Orange</td>
+</tr>
+<tr>
+<td>3</td>
+<td>White-Green</td>
+<td>3</td>
+<td>White-Green</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Blue</td>
+<td>4</td>
+<td>Blue</td>
+</tr>
+<tr>
+<td>5</td>
+<td>White-Blue</td>
+<td>5</td>
+<td>White-Blue</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Green</td>
+<td>6</td>
+<td>Green</td>
+</tr>
+<tr>
+<td>7</td>
+<td>White-Brown</td>
+<td>7</td>
+<td>White-Brown</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Brown</td>
+<td>8</td>
+<td>Brown</td>
+</tr>
+</tbody>
+</table>
+<h2 id="straight-through">Straight-through</h2>
+<p>The straight-through cable is used to connect a host to a switch or hub or a router to a switch or hub.</p>
+<p>Four wires are used in straight-through cable to connect 10/100 Ethernet devices. On a straight through cable, the wired pins match. Notice that only pins 1, 2, 3, and 6 are used. Connect 1 to 1, 2 to 2, 3 to 3, and 6 to 6 and you’ll be up and networking in no time. Just remember that this would be a 10/100 Ethernet-only cable, so it wouldn’t work with 1000 Mbps Ethernet, voice, Token Ring, ISDN, and so on.</p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/straight-through-pins.png"/> 
+</figure>
+
+<p>Straight through cable use one wiring standard: both ends use T568A wiring standard or both ends use T568B wiring standard. The following figure shows a straight through cable of which both ends are wired as the T568B standard.</p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/straight-through-wiring.png"/> 
+</figure>
+
+<table>
+<thead>
+<tr>
+<th>Side One Pin</th>
+<th>Color</th>
+<th>Side Two Pin</th>
+<th>Color</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>White-Orange</td>
+<td>1</td>
+<td>White-Orange</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Orange</td>
+<td>2</td>
+<td>Orange</td>
+</tr>
+<tr>
+<td>3</td>
+<td>White-Green</td>
+<td>3</td>
+<td>White-Green</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Blue</td>
+<td>4</td>
+<td>Blue</td>
+</tr>
+<tr>
+<td>5</td>
+<td>White-Blue</td>
+<td>5</td>
+<td>White-Blue</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Green</td>
+<td>6</td>
+<td>Green</td>
+</tr>
+<tr>
+<td>7</td>
+<td>White-Brown</td>
+<td>7</td>
+<td>White-Brown</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Brown</td>
+<td>8</td>
+<td>Brown</td>
+</tr>
+</tbody>
+</table>
+<h2 id="crossover">Crossover</h2>
+<p>The same four wires are used in this cable, and just as with the straight-through cable, you simply connect the different pins together. Crossover cables can be used to connect these devices:</p>
+<ul>
+<li>Switch to switch</li>
+<li>Hub to hub</li>
+<li>Host to host</li>
+<li>Hub to switch</li>
+<li>Router direct to host</li>
+</ul>
+<p>A crossover Ethernet cable is a type of Ethernet cable used to connect computing devices together directly. Unlike straight through cable, the RJ45 crossover cable uses two different wiring standards. One end uses the T568A wiring standard, and the other end uses the T568B wiring standard. The internal wiring of Ethernet crossover cables reverses the transmit and receive signals.</p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/crossover-wiring.png"/> 
+</figure>
+
+<table>
+<thead>
+<tr>
+<th>Side One Pin</th>
+<th>Color</th>
+<th>Side Two Pin</th>
+<th>Color</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>White-Orange</td>
+<td>1</td>
+<td>White-Green</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Orange</td>
+<td>2</td>
+<td>Green</td>
+</tr>
+<tr>
+<td>3</td>
+<td>White-Green</td>
+<td>3</td>
+<td>White-Orange</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Blue</td>
+<td>4</td>
+<td>Blue</td>
+</tr>
+<tr>
+<td>5</td>
+<td>White-Blue</td>
+<td>5</td>
+<td>White-Blue</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Green</td>
+<td>6</td>
+<td>Orange</td>
+</tr>
+<tr>
+<td>7</td>
+<td>White-Brown</td>
+<td>7</td>
+<td>White-Brown</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Brown</td>
+<td>8</td>
+<td>Brown</td>
+</tr>
+</tbody>
+</table>
+<p>Following figure demonstrates how each of the four wires are used in a crossover Ethernet cable.</p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/crossover-wiring-pins.png"/> 
+</figure>
+
+<h2 id="rollover-cable">Rollover Cable</h2>
+<p>Rollover wired cables have opposite Pin assignments on each end of the cable or, in other words, it is &ldquo;rolled over.&rdquo; Pin 1 of Connector A (Side One) would be connected to Pin 8 of Connector B (Side Two). Pin 2 of Connector A (Side One) would be connected to Pin 7 of Connector B (Side Two) and so on. Rollover cables are most commonly used to connect to a device&rsquo;s console port to make programming changes to the device. Unlike crossover and straight-wired cables, rollover cables are not intended to carry data but instead create an interface with the device.</p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/rollover-cable.png"/> 
+</figure>
+
+<table>
+<thead>
+<tr>
+<th>Side One Pin</th>
+<th>Color</th>
+<th>Side Two Pin</th>
+<th>Color</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>White-Orange</td>
+<td>1</td>
+<td>Brown</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Orange</td>
+<td>2</td>
+<td>White-Brown</td>
+</tr>
+<tr>
+<td>3</td>
+<td>White-Green</td>
+<td>3</td>
+<td>Green</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Blue</td>
+<td>4</td>
+<td>White-Blue</td>
+</tr>
+<tr>
+<td>5</td>
+<td>White-Blue</td>
+<td>5</td>
+<td>Blue</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Green</td>
+<td>6</td>
+<td>White-Green</td>
+</tr>
+<tr>
+<td>7</td>
+<td>White-Brown</td>
+<td>7</td>
+<td>Orange</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Brown</td>
+<td>8</td>
+<td>White-Orange</td>
+</tr>
+</tbody>
+</table>
+<h2 id="which-cable-to-choose---straight-through-or-crossover">Which cable to choose - Straight Through or Crossover</h2>
+<p>Straight through Ethernet cable can be used, if connecting:</p>
+<ul>
+<li>Switch to router</li>
+<li>Switch to PC or server</li>
+<li>Hub to PC or server</li>
+</ul>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/stc.png"/> 
+</figure>
+
+<p>Crossover cable can be used, if connecting:</p>
+<ul>
+<li>Switch to switch</li>
+<li>Switch to hub</li>
+<li>Hub to hub</li>
+<li>Router to router</li>
+<li>Router Ethernet port to PC NIC</li>
+<li>PC to PC</li>
+</ul>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/crossover-dev.png"/> 
+</figure>
+
+<h2 id="references">References</h2>
+<ul>
+<li>Lammle, T., CompTIA Network+ Study Guide 4th Edition, &ldquo;Wiring Standards&rdquo;, chapter 3, page 75</li>
+<li><a href="https://www.flukenetworks.com/knowledge-base/application-or-standards-articles-copper/differences-between-wiring-codes-t568a-vs">Fluke Networks: Differences Between Wiring Codes T568A vs T568B</a></li>
+<li><a href="https://www.cables-solutions.com/difference-between-straight-through-and-crossover-cable.html">Difference between Straight-through and crossover cable</a></li>
+<li><a href="https://www.computercablestore.com/straight-through-crossover-and-rollover-wiring">ComputerCableStore.com - Straight-through, Crossover, and Rollover Wiring</a></li>
+</ul>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>
