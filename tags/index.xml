@@ -6,7 +6,67 @@
     <description>Recent content in Tags on Reidar&#39;s Notebook</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 05 Sep 2024 19:46:58 +0300</lastBuildDate><atom:link href="https://tuxxuser.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 10 Sep 2024 20:45:16 +0300</lastBuildDate><atom:link href="https://tuxxuser.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>8.2</title>
+      <link>https://tuxxuser.github.io/tags/8.2/</link>
+      <pubDate>Tue, 10 Sep 2024 20:45:16 +0300</pubDate>
+      
+      <guid>https://tuxxuser.github.io/tags/8.2/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>LXC</title>
+      <link>https://tuxxuser.github.io/tags/lxc/</link>
+      <pubDate>Tue, 10 Sep 2024 20:45:16 +0300</pubDate>
+      
+      <guid>https://tuxxuser.github.io/tags/lxc/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Manager</title>
+      <link>https://tuxxuser.github.io/tags/manager/</link>
+      <pubDate>Tue, 10 Sep 2024 20:45:16 +0300</pubDate>
+      
+      <guid>https://tuxxuser.github.io/tags/manager/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Nginx</title>
+      <link>https://tuxxuser.github.io/tags/nginx/</link>
+      <pubDate>Tue, 10 Sep 2024 20:45:16 +0300</pubDate>
+      
+      <guid>https://tuxxuser.github.io/tags/nginx/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Proxmox</title>
+      <link>https://tuxxuser.github.io/tags/proxmox/</link>
+      <pubDate>Tue, 10 Sep 2024 20:45:16 +0300</pubDate>
+      
+      <guid>https://tuxxuser.github.io/tags/proxmox/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Proxy</title>
+      <link>https://tuxxuser.github.io/tags/proxy/</link>
+      <pubDate>Tue, 10 Sep 2024 20:45:16 +0300</pubDate>
+      
+      <guid>https://tuxxuser.github.io/tags/proxy/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
     <item>
       <title>Ethernet</title>
       <link>https://tuxxuser.github.io/tags/ethernet/</link>
@@ -43,26 +103,6 @@
       <pubDate>Tue, 03 Sep 2024 20:16:36 +0300</pubDate>
       
       <guid>https://tuxxuser.github.io/tags/docker-commands/</guid>
-      <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
-    
-    <item>
-      <title>8.2</title>
-      <link>https://tuxxuser.github.io/tags/8.2/</link>
-      <pubDate>Sun, 01 Sep 2024 20:19:00 +0300</pubDate>
-      
-      <guid>https://tuxxuser.github.io/tags/8.2/</guid>
-      <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
-    
-    <item>
-      <title>Proxmox</title>
-      <link>https://tuxxuser.github.io/tags/proxmox/</link>
-      <pubDate>Sun, 01 Sep 2024 20:19:00 +0300</pubDate>
-      
-      <guid>https://tuxxuser.github.io/tags/proxmox/</guid>
       <description></description>
       <content:encoded><![CDATA[]]></content:encoded>
     </item>

@@ -2,19 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://tuxxuser.github.io/tags/8.2/</loc>
+    <lastmod>2024-09-10T20:45:16+03:00</lastmod>
+  </url><url>
+    <loc>https://tuxxuser.github.io/posts/2024/install-nginx-proxy-manager-proxmox/</loc>
+    <lastmod>2024-09-10T20:45:16+03:00</lastmod>
+  </url><url>
+    <loc>https://tuxxuser.github.io/tags/lxc/</loc>
+    <lastmod>2024-09-10T20:45:16+03:00</lastmod>
+  </url><url>
+    <loc>https://tuxxuser.github.io/tags/manager/</loc>
+    <lastmod>2024-09-10T20:45:16+03:00</lastmod>
+  </url><url>
+    <loc>https://tuxxuser.github.io/tags/nginx/</loc>
+    <lastmod>2024-09-10T20:45:16+03:00</lastmod>
+  </url><url>
     <loc>https://tuxxuser.github.io/posts/</loc>
     <lastmod>2024-09-10T20:45:16+03:00</lastmod>
   </url><url>
+    <loc>https://tuxxuser.github.io/tags/proxmox/</loc>
+    <lastmod>2024-09-10T20:45:16+03:00</lastmod>
+  </url><url>
+    <loc>https://tuxxuser.github.io/tags/proxy/</loc>
+    <lastmod>2024-09-10T20:45:16+03:00</lastmod>
+  </url><url>
     <loc>https://tuxxuser.github.io/</loc>
+    <lastmod>2024-09-10T20:45:16+03:00</lastmod>
+  </url><url>
+    <loc>https://tuxxuser.github.io/tags/</loc>
     <lastmod>2024-09-10T20:45:16+03:00</lastmod>
   </url><url>
     <loc>https://tuxxuser.github.io/tags/ethernet/</loc>
     <lastmod>2024-09-05T19:46:58+03:00</lastmod>
   </url><url>
     <loc>https://tuxxuser.github.io/posts/2024/wiring-standards/</loc>
-    <lastmod>2024-09-05T19:46:58+03:00</lastmod>
-  </url><url>
-    <loc>https://tuxxuser.github.io/tags/</loc>
     <lastmod>2024-09-05T19:46:58+03:00</lastmod>
   </url><url>
     <loc>https://tuxxuser.github.io/tags/wiring-standards/</loc>
@@ -29,13 +50,7 @@
     <loc>https://tuxxuser.github.io/posts/2024/docker-management-cmd/</loc>
     <lastmod>2024-09-03T20:16:36+03:00</lastmod>
   </url><url>
-    <loc>https://tuxxuser.github.io/tags/8.2/</loc>
-    <lastmod>2024-09-01T20:19:00+03:00</lastmod>
-  </url><url>
     <loc>https://tuxxuser.github.io/posts/2024/proxmox-create-win11vm/</loc>
-    <lastmod>2024-09-01T20:19:00+03:00</lastmod>
-  </url><url>
-    <loc>https://tuxxuser.github.io/tags/proxmox/</loc>
     <lastmod>2024-09-01T20:19:00+03:00</lastmod>
   </url><url>
     <loc>https://tuxxuser.github.io/tags/virtual-machine/</loc>
