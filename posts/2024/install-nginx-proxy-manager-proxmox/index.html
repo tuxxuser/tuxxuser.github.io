@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Installing Nginx Proxy Manager LXC in Proxmox | Reidar&#39;s Notebook</title>
+<meta name="keywords" content="Proxmox, 8.2, LXC, Nginx, Proxy, Manager">
+<meta name="description" content="The following article provides steps to install Nginx Proxy Manager LXC (Linux Container) in Proxmox, using &ldquo;Advanced&rdquo; installation options.
+Installation can be done, using Proxmox VE Helper-Scripts
+Warning: Before executing any scripts on the server, it&rsquo;s strongly recommended that you review them.
+Installation steps Go to the Proxmox shell and execute the following command:
+bash -c &#34;$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/nginxproxymanager.sh)&#34; This command will launch the installation wizard:
+This will create a New Nginx Proxy Manager LXC.">
+<meta name="author" content="Reidar">
+<link rel="canonical" href="http://localhost:1313/posts/2024/install-nginx-proxy-manager-proxmox/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.7da7716a1f2d0725f74c6ae7f8d6adafc43aabe2b366b65bfbf433448e2a2001.css" integrity="sha256-fadxah8tByX3TGrn&#43;Natr8Q6q&#43;KzZrZb&#43;/QzRI4qIAE=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/2024/install-nginx-proxy-manager-proxmox/">
+
+  <meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Installing Nginx Proxy Manager LXC in Proxmox | Reidar&#39;s Notebook" />
+<meta name="twitter:description" content="The following article provides steps to install Nginx Proxy Manager LXC (Linux Container) in Proxmox, using &ldquo;Advanced&rdquo; installation options.
+Installation can be done, using Proxmox VE Helper-Scripts
+Warning: Before executing any scripts on the server, it&rsquo;s strongly recommended that you review them.
+Installation steps Go to the Proxmox shell and execute the following command:
+bash -c &#34;$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/nginxproxymanager.sh)&#34; This command will launch the installation wizard:
+This will create a New Nginx Proxy Manager LXC." />
+<meta property="og:title" content="Installing Nginx Proxy Manager LXC in Proxmox | Reidar&#39;s Notebook" />
+<meta property="og:description" content="The following article provides steps to install Nginx Proxy Manager LXC (Linux Container) in Proxmox, using &ldquo;Advanced&rdquo; installation options.
+Installation can be done, using Proxmox VE Helper-Scripts
+Warning: Before executing any scripts on the server, it&rsquo;s strongly recommended that you review them.
+Installation steps Go to the Proxmox shell and execute the following command:
+bash -c &#34;$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/nginxproxymanager.sh)&#34; This command will launch the installation wizard:
+This will create a New Nginx Proxy Manager LXC." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/posts/2024/install-nginx-proxy-manager-proxmox/" />
+    <meta property="og:image" content="http://localhost:1313/posts/2024/install-nginx-proxy-manager-proxmox/posts/cover-images/proxmox.png" /><meta property="article:section" content="posts" />
+  <meta property="article:published_time" content="2024-09-10T20:45:16&#43;03:00" />
+  <meta property="article:modified_time" content="2024-09-10T20:45:16&#43;03:00" />
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://localhost:1313/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Installing Nginx Proxy Manager LXC in Proxmox",
+      "item": "http://localhost:1313/posts/2024/install-nginx-proxy-manager-proxmox/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Installing Nginx Proxy Manager LXC in Proxmox | Reidar's Notebook",
+  "name": "Installing Nginx Proxy Manager LXC in Proxmox",
+  "description": "The following article provides steps to install Nginx Proxy Manager LXC (Linux Container) in Proxmox, using \u0026ldquo;Advanced\u0026rdquo; installation options.\nInstallation can be done, using Proxmox VE Helper-Scripts\nWarning: Before executing any scripts on the server, it\u0026rsquo;s strongly recommended that you review them.\nInstallation steps Go to the Proxmox shell and execute the following command:\nbash -c \u0026#34;$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/nginxproxymanager.sh)\u0026#34; This command will launch the installation wizard:\nThis will create a New Nginx Proxy Manager LXC.",
+  "keywords": [
+    "Proxmox", "8.2", "LXC", "Nginx", "Proxy", "Manager"
+  ],
+  "wordCount" : "544",
+  "inLanguage": "en",
+  "image":"http://localhost:1313/posts/2024/install-nginx-proxy-manager-proxmox/posts/cover-images/proxmox.png","datePublished": "2024-09-10T20:45:16+03:00",
+  "dateModified": "2024-09-10T20:45:16+03:00",
+  "author":{
+    "@type": "Person",
+    "name": "Reidar"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/posts/2024/install-nginx-proxy-manager-proxmox/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Reidar's Notebook",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+
+</head>
+
+<body class=" dark type-posts kind-page layout-" id="top"><script data-no-instant>
+function switchTheme(theme) {
+  switch (theme) {
+    case 'light':
+      document.body.classList.remove('dark');
+      break;
+    case 'dark':
+      document.body.classList.add('dark');
+      break;
+    
+    default:
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+      }
+  }
+}
+
+function isDarkTheme() {
+  return document.body.className.includes("dark");
+}
+
+function getPrefTheme() {
+  return localStorage.getItem("pref-theme");
+}
+
+function setPrefTheme(theme) {
+  switchTheme(theme)
+  localStorage.setItem("pref-theme", theme);
+}
+
+const toggleThemeCallbacks = {}
+toggleThemeCallbacks['main'] = (isDark) => {
+  
+  if (isDark) {
+    setPrefTheme('light');
+  } else {
+    setPrefTheme('dark');
+  }
+}
+
+
+
+
+window.addEventListener('toggle-theme', function() {
+  
+  const isDark = isDarkTheme()
+  for (const key in toggleThemeCallbacks) {
+    toggleThemeCallbacks[key](isDark)
+  }
+});
+
+
+function toggleThemeListener() {
+  
+  window.dispatchEvent(new CustomEvent('toggle-theme'));
+}
+
+</script>
+<script>
+  
+  (function() {
+    const defaultTheme = 'dark';
+    const prefTheme = getPrefTheme();
+    const theme = prefTheme ? prefTheme : defaultTheme;
+
+    switchTheme(theme);
+  })();
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Reidar&#39;s Notebook (Alt + H)">Reidar&#39;s Notebook</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/archive/" title="Archive"
+                >Archive
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags"
+                >Tags
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)"data-no-instant accesskey=/
+                >Search
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/index.xml/" title="RSS Feed" target="_blank"
+                >RSS Feed<span class="external-link"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-external-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M11 7h-5a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-5" />
+  <line x1="10" y1="14" x2="20" y2="4" />
+  <polyline points="15 4 20 4 20 9" />
+</svg>
+</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main post">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div><h1 class="post-title">Installing Nginx Proxy Manager LXC in Proxmox<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup></h1>
+    <div class="post-meta"><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar" style="user-select: text;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2" style="user-select: text;"></rect><line x1="16" y1="2" x2="16" y2="6" style="user-select: text;"></line><line x1="8" y1="2" x2="8" y2="6" style="user-select: text;"></line><line x1="3" y1="10" x2="21" y2="10" style="user-select: text;"></line></svg>
+  <span>2024-09-10</span></span><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon" style="user-select: text;"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" style="user-select: text;"></path><line x1="7" y1="7" x2="7" y2="7" style="user-select: text;"></line></svg>
+  <span class="post-tags"><a href="http://localhost:1313/tags/proxmox/">Proxmox</a><a href="http://localhost:1313/tags/8.2/">8.2</a><a href="http://localhost:1313/tags/lxc/">LXC</a><a href="http://localhost:1313/tags/nginx/">Nginx</a><a href="http://localhost:1313/tags/proxy/">Proxy</a><a href="http://localhost:1313/tags/manager/">Manager</a></span></span><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text" style="user-select: text;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" style="user-select: text;"></path><polyline points="14 2 14 8 20 8" style="user-select: text;"></polyline><line x1="16" y1="13" x2="8" y2="13" style="user-select: text;"></line><line x1="16" y1="17" x2="8" y2="17" style="user-select: text;"></line><polyline points="10 9 9 9 8 9" style="user-select: text;"></polyline></svg>
+  <span>544 words</span></span><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><circle cx="12" cy="12" r="9"></circle><polyline points="12 7 12 12 15 15"></polyline></svg>
+  <span>3 min</span></span>
+
+      
+      
+    </div>
+  </header> 
+<figure class="entry-cover"><a href="http://localhost:1313/posts/cover-images/proxmox.png" target="_blank"
+            rel="noopener noreferrer"><img loading="lazy" src="http://localhost:1313/posts/cover-images/proxmox.png" alt=""></a>
+        
+</figure><div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#installation-steps" aria-label="Installation steps">Installation steps</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#this-will-create-a-new-nginx-proxy-manager-lxc-proceed" aria-label="This will create a New Nginx Proxy Manager LXC. Proceed?">This will create a New Nginx Proxy Manager LXC. Proceed?</a></li>
+                <li>
+                    <a href="#use-default-settings" aria-label="Use Default Settings?">Use Default Settings?</a></li>
+                <li>
+                    <a href="#to-make-a-selection-use-the-spacebar" aria-label="To make a selection, use the spacebar.">To make a selection, use the spacebar.</a></li>
+                <li>
+                    <a href="#debian-12-if-the-default-linux-distribution-is-not-adhered-to-script-support-will-be-discontinued" aria-label="Debian 12. If the default Linux distribution is not adhered to, script support will be discontinued.">Debian 12. If the default Linux distribution is not adhered to, script support will be discontinued.</a></li>
+                <li>
+                    <a href="#choose-distribution" aria-label="Choose Distribution">Choose Distribution</a></li>
+                <li>
+                    <a href="#choose-version" aria-label="Choose Version">Choose Version</a></li>
+                <li>
+                    <a href="#choose-type" aria-label="Choose Type">Choose Type</a></li>
+                <li>
+                    <a href="#set-root-password-needed-for-root-ssh-access" aria-label="Set Root Password (needed for root ssh access)">Set Root Password (needed for root ssh access)</a></li>
+                <li>
+                    <a href="#set-container-id" aria-label="Set Container ID">Set Container ID</a></li>
+                <li>
+                    <a href="#set-hostname" aria-label="Set Hostname">Set Hostname</a></li>
+                <li>
+                    <a href="#set-disk-size-in-gb" aria-label="Set Disk Size in GB">Set Disk Size in GB</a></li>
+                <li>
+                    <a href="#allocate-cpu-cores" aria-label="Allocate CPU Cores">Allocate CPU Cores</a></li>
+                <li>
+                    <a href="#allocate-ram-in-mib" aria-label="Allocate RAM in MiB">Allocate RAM in MiB</a></li>
+                <li>
+                    <a href="#set-a-bridge" aria-label="Set a Bridge">Set a Bridge</a></li>
+                <li>
+                    <a href="#set-a-static-ipv4-cidr-address-24" aria-label="Set a Static IPv4 CIDR Address (/24)">Set a Static IPv4 CIDR Address (/24)</a></li>
+                <li>
+                    <a href="#enter-gateway-ip-address" aria-label="Enter gateway IP address">Enter gateway IP address</a></li>
+                <li>
+                    <a href="#set-apt-cacher-ip-leave-blank-for-default" aria-label="Set APT-Cacher IP (leave blank for default)">Set APT-Cacher IP (leave blank for default)</a></li>
+                <li>
+                    <a href="#disable-ipv6" aria-label="Disable IPv6?">Disable IPv6?</a></li>
+                <li>
+                    <a href="#set-interface-mtu-size-leave-blank-for-default" aria-label="Set Interface MTU size (leave blank for default)">Set Interface MTU size (leave blank for default)</a></li>
+                <li>
+                    <a href="#set-a-dns-search-domain-leave-blank-for-host" aria-label="Set a DNS Search Domain (leave blank for HOST)">Set a DNS Search Domain (leave blank for HOST)</a></li>
+                <li>
+                    <a href="#set-a-dns-server-ip-leave-blank-for-host" aria-label="Set a DNS Server IP (leave blank for HOST)">Set a DNS Server IP (leave blank for HOST)</a></li>
+                <li>
+                    <a href="#set-a-mac-address-leave-blank-for-default" aria-label="Set a MAC Address (leave blank for default)">Set a MAC Address (leave blank for default)</a></li>
+                <li>
+                    <a href="#set-a-vlan-leave-blank-for-default" aria-label="Set a Vlan (leave blank for default)">Set a Vlan (leave blank for default)</a></li>
+                <li>
+                    <a href="#enable-root-ssh-access" aria-label="Enable Root SSH Access?">Enable Root SSH Access?</a></li>
+                <li>
+                    <a href="#enable-verbose-mode" aria-label="Enable Verbose Mode?">Enable Verbose Mode?</a></li>
+                <li>
+                    <a href="#ready-to-create-nginx-proxy-manager-lxc" aria-label="Ready to create Nginx Proxy Manager LXC?">Ready to create Nginx Proxy Manager LXC?</a></li>
+                <li>
+                    <a href="#which-storage-pool-you-would-like-to-use-for-the-container-template-to-make-a-selection-use-the-spacebar" aria-label="Which storage pool you would like to use for the container template? To make a selection, use the Spacebar.">Which storage pool you would like to use for the container template? To make a selection, use the Spacebar.</a></li>
+                <li>
+                    <a href="#which-storage-pool-you-would-like-to-use-for-the-container-to-make-a-selection-use-the-spacebar" aria-label="Which storage pool you would like to use for the container? To make a selection, use the Spacebar.">Which storage pool you would like to use for the container? To make a selection, use the Spacebar.</a></li>
+                <li>
+                    <a href="#complete-installation-process" aria-label="Complete installation process">Complete installation process</a></li></ul>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#references" aria-label="References">References</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>The following article provides steps to install Nginx Proxy Manager LXC (Linux Container) in Proxmox, using &ldquo;Advanced&rdquo; installation options.</p>
+<p>Installation can be done, using <a href="https://tteck.github.io/Proxmox/">Proxmox VE Helper-Scripts</a></p>
+<p><strong>Warning</strong>: Before executing any scripts on the server, it&rsquo;s strongly recommended that you review them.</p>
+<h2 id="installation-steps">Installation steps<a hidden class="anchor" aria-hidden="true" href="#installation-steps">¶</a></h2>
+<p>Go to the Proxmox shell and execute the following command:</p>
+<pre tabindex="0"><code>bash -c &#34;$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/nginxproxymanager.sh)&#34;
+</code></pre><p>This command will launch the installation wizard:</p>
+<h4 id="this-will-create-a-new-nginx-proxy-manager-lxc-proceed">This will create a New Nginx Proxy Manager LXC. Proceed?<a hidden class="anchor" aria-hidden="true" href="#this-will-create-a-new-nginx-proxy-manager-lxc-proceed">¶</a></h4>
+<p>Select <code>&lt;Yes&gt;</code></p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/1-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="use-default-settings">Use Default Settings?<a hidden class="anchor" aria-hidden="true" href="#use-default-settings">¶</a></h4>
+<p>Select <code>&lt;Advanced&gt;</code></p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/2-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="to-make-a-selection-use-the-spacebar">To make a selection, use the spacebar.<a hidden class="anchor" aria-hidden="true" href="#to-make-a-selection-use-the-spacebar">¶</a></h4>
+<p>Select <code>&lt;Ok&gt;</code></p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/3-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="debian-12-if-the-default-linux-distribution-is-not-adhered-to-script-support-will-be-discontinued">Debian 12. If the default Linux distribution is not adhered to, script support will be discontinued.<a hidden class="anchor" aria-hidden="true" href="#debian-12-if-the-default-linux-distribution-is-not-adhered-to-script-support-will-be-discontinued">¶</a></h4>
+<p>Select <code>&lt;Ok&gt;</code></p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/4-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="choose-distribution">Choose Distribution<a hidden class="anchor" aria-hidden="true" href="#choose-distribution">¶</a></h4>
+<p>Select <code>(*) debian</code> and <code>&lt;Ok&gt;</code></p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/5-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="choose-version">Choose Version<a hidden class="anchor" aria-hidden="true" href="#choose-version">¶</a></h4>
+<p>Select <code>(*) 12 Bookworm</code> and <code>&lt;Ok&gt;</code></p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/6-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="choose-type">Choose Type<a hidden class="anchor" aria-hidden="true" href="#choose-type">¶</a></h4>
+<p>Select <code>(*) 1 Unprivileged</code> and <code>&lt;Ok&gt;</code></p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/7-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="set-root-password-needed-for-root-ssh-access">Set Root Password (needed for root ssh access)<a hidden class="anchor" aria-hidden="true" href="#set-root-password-needed-for-root-ssh-access">¶</a></h4>
+<p>Provide (create) password for <code>root</code> user</p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/8-nginx-proxy-man.png"/> 
+</figure>
+
+<figure>
+    <img loading="lazy" src="/posts/2024/images/8-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="set-container-id">Set Container ID<a hidden class="anchor" aria-hidden="true" href="#set-container-id">¶</a></h4>
+<p>Provide container ID. This is a (non-existing) numeric value to identify a container or virtual machine. In this example, we set ID to <code>2000</code></p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/9-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="set-hostname">Set Hostname<a hidden class="anchor" aria-hidden="true" href="#set-hostname">¶</a></h4>
+<p>In this example our hostname is <code>nginx-proxman</code>, set the name and select <code>&lt;Ok&gt;</code></p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/10-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="set-disk-size-in-gb">Set Disk Size in GB<a hidden class="anchor" aria-hidden="true" href="#set-disk-size-in-gb">¶</a></h4>
+<p>In this example, we can keep the default value, <code>4 GB</code> and press <code>&lt;Ok&gt;</code></p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/11-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="allocate-cpu-cores">Allocate CPU Cores<a hidden class="anchor" aria-hidden="true" href="#allocate-cpu-cores">¶</a></h4>
+<p>We can keep the default value of <code>2</code> and press <code>&lt;Ok&gt;</code></p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/12-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="allocate-ram-in-mib">Allocate RAM in MiB<a hidden class="anchor" aria-hidden="true" href="#allocate-ram-in-mib">¶</a></h4>
+<p>By default, the selected value is <code>1 GB</code> (or <code>1024 MiB</code>). In this example, we will set the value to <code>2 GB</code> (or <code>2048 MiB</code>)</p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/13-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="set-a-bridge">Set a Bridge<a hidden class="anchor" aria-hidden="true" href="#set-a-bridge">¶</a></h4>
+<p>This will select the network interface. In this example, our network interface is <code>vmbr1</code> (test network: <code>10.10.20.0/24</code>)</p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/14-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="set-a-static-ipv4-cidr-address-24">Set a Static IPv4 CIDR Address (/24)<a hidden class="anchor" aria-hidden="true" href="#set-a-static-ipv4-cidr-address-24">¶</a></h4>
+<p>Set static IP for this LXC: <code>10.10.20.10/24</code></p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/15-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="enter-gateway-ip-address">Enter gateway IP address<a hidden class="anchor" aria-hidden="true" href="#enter-gateway-ip-address">¶</a></h4>
+<p>Gateway IP in our test network is <code>10.10.20.1</code></p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/16-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="set-apt-cacher-ip-leave-blank-for-default">Set APT-Cacher IP (leave blank for default)<a hidden class="anchor" aria-hidden="true" href="#set-apt-cacher-ip-leave-blank-for-default">¶</a></h4>
+<p>Use default value (leave it blank) and select <code>&lt;Ok&gt;</code></p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/17-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="disable-ipv6">Disable IPv6?<a hidden class="anchor" aria-hidden="true" href="#disable-ipv6">¶</a></h4>
+<p>Disable IPv6 by selecting <code>&lt;Yes&gt;</code></p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/18-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="set-interface-mtu-size-leave-blank-for-default">Set Interface MTU size (leave blank for default)<a hidden class="anchor" aria-hidden="true" href="#set-interface-mtu-size-leave-blank-for-default">¶</a></h4>
+<p>Use default value (leave it blank) and select <code>&lt;Ok&gt;</code></p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/19-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="set-a-dns-search-domain-leave-blank-for-host">Set a DNS Search Domain (leave blank for HOST)<a hidden class="anchor" aria-hidden="true" href="#set-a-dns-search-domain-leave-blank-for-host">¶</a></h4>
+<p>Use default value (leave it blank) and select <code>&lt;Ok&gt;</code></p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/20-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="set-a-dns-server-ip-leave-blank-for-host">Set a DNS Server IP (leave blank for HOST)<a hidden class="anchor" aria-hidden="true" href="#set-a-dns-server-ip-leave-blank-for-host">¶</a></h4>
+<p>In this example, Google DNS server <code>8.8.8.8</code> is used</p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/21-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="set-a-mac-address-leave-blank-for-default">Set a MAC Address (leave blank for default)<a hidden class="anchor" aria-hidden="true" href="#set-a-mac-address-leave-blank-for-default">¶</a></h4>
+<p>Use default value (leave it blank) and select <code>&lt;Ok&gt;</code></p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/22-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="set-a-vlan-leave-blank-for-default">Set a Vlan (leave blank for default)<a hidden class="anchor" aria-hidden="true" href="#set-a-vlan-leave-blank-for-default">¶</a></h4>
+<p>Use default value (leave it blank) and select <code>&lt;Ok&gt;</code></p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/23-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="enable-root-ssh-access">Enable Root SSH Access?<a hidden class="anchor" aria-hidden="true" href="#enable-root-ssh-access">¶</a></h4>
+<p>In this example configuration, we do not enable Root SSH access. Select <code>&lt;No&gt;</code>.</p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/24-nginx-proxy-man.png"/> 
+</figure>
+
+<p><strong>Note</strong>: If you want to enable Root SSH access, select <code>&lt;Yes&gt;</code></p>
+<h4 id="enable-verbose-mode">Enable Verbose Mode?<a hidden class="anchor" aria-hidden="true" href="#enable-verbose-mode">¶</a></h4>
+<p>In this example configuration, we disable verbose mode. Select <code>&lt;No&gt;</code></p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/25-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="ready-to-create-nginx-proxy-manager-lxc">Ready to create Nginx Proxy Manager LXC?<a hidden class="anchor" aria-hidden="true" href="#ready-to-create-nginx-proxy-manager-lxc">¶</a></h4>
+<p>Finally, select <code>&lt;Yes&gt;</code> to create the container.</p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/26-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="which-storage-pool-you-would-like-to-use-for-the-container-template-to-make-a-selection-use-the-spacebar">Which storage pool you would like to use for the container template? To make a selection, use the Spacebar.<a hidden class="anchor" aria-hidden="true" href="#which-storage-pool-you-would-like-to-use-for-the-container-template-to-make-a-selection-use-the-spacebar">¶</a></h4>
+<p>Select the storage pool, where the container template is stored. In this example, select <code>vm-storage</code> and press <code>&lt;Ok&gt;</code></p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/27-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="which-storage-pool-you-would-like-to-use-for-the-container-to-make-a-selection-use-the-spacebar">Which storage pool you would like to use for the container? To make a selection, use the Spacebar.<a hidden class="anchor" aria-hidden="true" href="#which-storage-pool-you-would-like-to-use-for-the-container-to-make-a-selection-use-the-spacebar">¶</a></h4>
+<p>Select the storage pool, where the container is stored. In this example, select <code>vm-storage</code> and press <code>&lt;Ok&gt;</code></p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/28-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="complete-installation-process">Complete installation process<a hidden class="anchor" aria-hidden="true" href="#complete-installation-process">¶</a></h4>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/29-nginx-proxy-man.png"/> 
+</figure>
+
+<h2 id="references">References<a hidden class="anchor" aria-hidden="true" href="#references">¶</a></h2>
+<ul>
+<li><a href="https://tteck.github.io/Proxmox/">Proxmox VE Helper-Scripts</a></li>
+<li><a href="https://github.com/tteck/Proxmox">Github - tteck/Proxmox</a></li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+<nav class="paginav">
+  <a class="next" href="http://localhost:1313/posts/2024/wiring-standards/">
+    <span class="title">Next Page&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right" style="user-select: text;"><line x1="5" y1="12" x2="19" y2="12" style="user-select: text;"></line><polyline points="12 5 19 12 12 19" style="user-select: text;"></polyline></svg>
+    </span>
+    <br>
+    <span>Ethernet Cable Wiring Standards</span>
+  </a>
+</nav>
+
+  </footer>
+    <div class="comments-separator"></div>
+</article>
+    </main>
+    
+<footer class="footer">
+  <span>&copy; 2024 <a href="http://localhost:1313/">Reidar&#39;s Notebook</a></span><span style="display: inline-block; margin-left: 1em;">
+    <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA</a>
+  </span>
+  <span style="display: inline-block; margin-left: 1em;">
+    Powered by
+    <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+    <a href="https://github.com/reorx/hugo-PaperModX/" rel="noopener" target="_blank">PaperModX</a>
+  </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+    <path d="M12 6H0l6-6z" />
+  </svg>
+</a>
+
+<script>
+  (function() {
+     
+    const disableThemeToggle = '' == '1';
+    if (disableThemeToggle) {
+      return;
+    }
+
+    let button = document.getElementById("theme-toggle")
+    
+    button.removeEventListener('click', toggleThemeListener)
+    
+    button.addEventListener('click', toggleThemeListener)
+  })();
+</script>
+
+<script>
+  (function () {
+    let menu = document.getElementById('menu')
+    if (menu) {
+      menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+      menu.onscroll = function () {
+        localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+      }
+    }
+
+    const disableSmoothScroll = '' == '1';
+    const enableInstantClick = '' == '1';
+    
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || disableSmoothScroll || enableInstantClick) {
+      return;
+    }
+    
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+        var id = this.getAttribute("href").substr(1);
+        document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+          behavior: "smooth"
+        });
+        if (id === "top") {
+          history.replaceState(null, null, " ");
+        } else {
+          history.pushState(null, null, `#${id}`);
+        }
+      });
+    });
+  })();
+</script>
+<script>
+  var mybutton = document.getElementById("top-link");
+  window.onscroll = function () {
+    if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+      mybutton.style.visibility = "visible";
+      mybutton.style.opacity = "1";
+    } else {
+      mybutton.style.visibility = "hidden";
+      mybutton.style.opacity = "0";
+    }
+  };
+</script>
+<script>
+  if (window.scrollListeners) {
+    
+    for (const listener of scrollListeners) {
+      window.removeEventListener('scroll', listener)
+    }
+  }
+  window.scrollListeners = []
+</script>
+
+
+
+<script src="/js/medium-zoom.min.js" data-no-instant
+></script>
+
+
+
+
+<script>
+  
+  
+  (function() {
+    const enableTocScroll = '' == '1'
+    if (!enableTocScroll) {
+      return
+    }
+    if (!document.querySelector('.toc')) {
+      console.log('no toc found, ignore toc scroll')
+      return
+    }
+    
+
+    
+    const scrollListeners = window.scrollListeners
+    const headings = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id]');
+    const activeClass = 'active';
+
+    
+    let activeHeading = headings[0];
+    getLinkByHeading(activeHeading).classList.add(activeClass);
+
+    const onScroll = () => {
+      const passedHeadings = [];
+      for (const h of headings) {
+        
+        if (getOffsetTop(h) < 5) {
+          passedHeadings.push(h)
+        } else {
+          break;
+        }
+      }
+      if (passedHeadings.length > 0) {
+        newActiveHeading = passedHeadings[passedHeadings.length - 1];
+      } else {
+        newActiveHeading = headings[0];
+      }
+      if (activeHeading != newActiveHeading) {
+        getLinkByHeading(activeHeading).classList.remove(activeClass);
+        activeHeading = newActiveHeading;
+        getLinkByHeading(activeHeading).classList.add(activeClass);
+      }
+    }
+
+    let timer = null;
+    const scrollListener = () => {
+      if (timer !== null) {
+        clearTimeout(timer)
+      }
+      timer = setTimeout(onScroll, 50)
+    }
+    window.addEventListener('scroll', scrollListener, false);
+    scrollListeners.push(scrollListener)
+
+    function getLinkByHeading(heading) {
+      const id = encodeURI(heading.getAttribute('id')).toLowerCase();
+      return document.querySelector(`.toc ul li a[href="#${id}"]`);
+    }
+
+    function getOffsetTop(heading) {
+      if (!heading.getClientRects().length) {
+        return 0;
+      }
+      let rect = heading.getBoundingClientRect();
+      return rect.top
+    }
+  })();
+  </script>
+
+</body>
+
+</html>

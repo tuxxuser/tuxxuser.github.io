@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Manager on Reidar&#39;s Notebook</title>
+    <link>http://localhost:1313/tags/manager/</link>
+    <description>Recent content in Manager on Reidar&#39;s Notebook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 10 Sep 2024 20:45:16 +0300</lastBuildDate><atom:link href="http://localhost:1313/tags/manager/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Installing Nginx Proxy Manager LXC in Proxmox</title>
+      <link>http://localhost:1313/posts/2024/install-nginx-proxy-manager-proxmox/</link>
+      <pubDate>Tue, 10 Sep 2024 20:45:16 +0300</pubDate>
+      
+      <guid>http://localhost:1313/posts/2024/install-nginx-proxy-manager-proxmox/</guid>
+      <description>The following article provides steps to install Nginx Proxy Manager LXC (Linux Container) in Proxmox, using &amp;ldquo;Advanced&amp;rdquo; installation options.
+Installation can be done, using Proxmox VE Helper-Scripts
+Warning: Before executing any scripts on the server, it&amp;rsquo;s strongly recommended that you review them.
+Installation steps Go to the Proxmox shell and execute the following command:
+bash -c &amp;#34;$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/nginxproxymanager.sh)&amp;#34; This command will launch the installation wizard:
+This will create a New Nginx Proxy Manager LXC.</description>
+      <content:encoded><![CDATA[<p>The following article provides steps to install Nginx Proxy Manager LXC (Linux Container) in Proxmox, using &ldquo;Advanced&rdquo; installation options.</p>
+<p>Installation can be done, using <a href="https://tteck.github.io/Proxmox/">Proxmox VE Helper-Scripts</a></p>
+<p><strong>Warning</strong>: Before executing any scripts on the server, it&rsquo;s strongly recommended that you review them.</p>
+<h2 id="installation-steps">Installation steps</h2>
+<p>Go to the Proxmox shell and execute the following command:</p>
+<pre tabindex="0"><code>bash -c &#34;$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/nginxproxymanager.sh)&#34;
+</code></pre><p>This command will launch the installation wizard:</p>
+<h4 id="this-will-create-a-new-nginx-proxy-manager-lxc-proceed">This will create a New Nginx Proxy Manager LXC. Proceed?</h4>
+<p>Select <code>&lt;Yes&gt;</code></p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/1-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="use-default-settings">Use Default Settings?</h4>
+<p>Select <code>&lt;Advanced&gt;</code></p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/2-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="to-make-a-selection-use-the-spacebar">To make a selection, use the spacebar.</h4>
+<p>Select <code>&lt;Ok&gt;</code></p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/3-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="debian-12-if-the-default-linux-distribution-is-not-adhered-to-script-support-will-be-discontinued">Debian 12. If the default Linux distribution is not adhered to, script support will be discontinued.</h4>
+<p>Select <code>&lt;Ok&gt;</code></p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/4-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="choose-distribution">Choose Distribution</h4>
+<p>Select <code>(*) debian</code> and <code>&lt;Ok&gt;</code></p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/5-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="choose-version">Choose Version</h4>
+<p>Select <code>(*) 12 Bookworm</code> and <code>&lt;Ok&gt;</code></p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/6-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="choose-type">Choose Type</h4>
+<p>Select <code>(*) 1 Unprivileged</code> and <code>&lt;Ok&gt;</code></p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/7-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="set-root-password-needed-for-root-ssh-access">Set Root Password (needed for root ssh access)</h4>
+<p>Provide (create) password for <code>root</code> user</p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/8-nginx-proxy-man.png"/> 
+</figure>
+
+<figure>
+    <img loading="lazy" src="/posts/2024/images/8-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="set-container-id">Set Container ID</h4>
+<p>Provide container ID. This is a (non-existing) numeric value to identify a container or virtual machine. In this example, we set ID to <code>2000</code></p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/9-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="set-hostname">Set Hostname</h4>
+<p>In this example our hostname is <code>nginx-proxman</code>, set the name and select <code>&lt;Ok&gt;</code></p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/10-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="set-disk-size-in-gb">Set Disk Size in GB</h4>
+<p>In this example, we can keep the default value, <code>4 GB</code> and press <code>&lt;Ok&gt;</code></p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/11-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="allocate-cpu-cores">Allocate CPU Cores</h4>
+<p>We can keep the default value of <code>2</code> and press <code>&lt;Ok&gt;</code></p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/12-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="allocate-ram-in-mib">Allocate RAM in MiB</h4>
+<p>By default, the selected value is <code>1 GB</code> (or <code>1024 MiB</code>). In this example, we will set the value to <code>2 GB</code> (or <code>2048 MiB</code>)</p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/13-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="set-a-bridge">Set a Bridge</h4>
+<p>This will select the network interface. In this example, our network interface is <code>vmbr1</code> (test network: <code>10.10.20.0/24</code>)</p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/14-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="set-a-static-ipv4-cidr-address-24">Set a Static IPv4 CIDR Address (/24)</h4>
+<p>Set static IP for this LXC: <code>10.10.20.10/24</code></p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/15-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="enter-gateway-ip-address">Enter gateway IP address</h4>
+<p>Gateway IP in our test network is <code>10.10.20.1</code></p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/16-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="set-apt-cacher-ip-leave-blank-for-default">Set APT-Cacher IP (leave blank for default)</h4>
+<p>Use default value (leave it blank) and select <code>&lt;Ok&gt;</code></p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/17-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="disable-ipv6">Disable IPv6?</h4>
+<p>Disable IPv6 by selecting <code>&lt;Yes&gt;</code></p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/18-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="set-interface-mtu-size-leave-blank-for-default">Set Interface MTU size (leave blank for default)</h4>
+<p>Use default value (leave it blank) and select <code>&lt;Ok&gt;</code></p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/19-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="set-a-dns-search-domain-leave-blank-for-host">Set a DNS Search Domain (leave blank for HOST)</h4>
+<p>Use default value (leave it blank) and select <code>&lt;Ok&gt;</code></p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/20-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="set-a-dns-server-ip-leave-blank-for-host">Set a DNS Server IP (leave blank for HOST)</h4>
+<p>In this example, Google DNS server <code>8.8.8.8</code> is used</p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/21-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="set-a-mac-address-leave-blank-for-default">Set a MAC Address (leave blank for default)</h4>
+<p>Use default value (leave it blank) and select <code>&lt;Ok&gt;</code></p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/22-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="set-a-vlan-leave-blank-for-default">Set a Vlan (leave blank for default)</h4>
+<p>Use default value (leave it blank) and select <code>&lt;Ok&gt;</code></p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/23-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="enable-root-ssh-access">Enable Root SSH Access?</h4>
+<p>In this example configuration, we do not enable Root SSH access. Select <code>&lt;No&gt;</code>.</p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/24-nginx-proxy-man.png"/> 
+</figure>
+
+<p><strong>Note</strong>: If you want to enable Root SSH access, select <code>&lt;Yes&gt;</code></p>
+<h4 id="enable-verbose-mode">Enable Verbose Mode?</h4>
+<p>In this example configuration, we disable verbose mode. Select <code>&lt;No&gt;</code></p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/25-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="ready-to-create-nginx-proxy-manager-lxc">Ready to create Nginx Proxy Manager LXC?</h4>
+<p>Finally, select <code>&lt;Yes&gt;</code> to create the container.</p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/26-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="which-storage-pool-you-would-like-to-use-for-the-container-template-to-make-a-selection-use-the-spacebar">Which storage pool you would like to use for the container template? To make a selection, use the Spacebar.</h4>
+<p>Select the storage pool, where the container template is stored. In this example, select <code>vm-storage</code> and press <code>&lt;Ok&gt;</code></p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/27-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="which-storage-pool-you-would-like-to-use-for-the-container-to-make-a-selection-use-the-spacebar">Which storage pool you would like to use for the container? To make a selection, use the Spacebar.</h4>
+<p>Select the storage pool, where the container is stored. In this example, select <code>vm-storage</code> and press <code>&lt;Ok&gt;</code></p>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/28-nginx-proxy-man.png"/> 
+</figure>
+
+<h4 id="complete-installation-process">Complete installation process</h4>
+<figure>
+    <img loading="lazy" src="/posts/2024/images/29-nginx-proxy-man.png"/> 
+</figure>
+
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://tteck.github.io/Proxmox/">Proxmox VE Helper-Scripts</a></li>
+<li><a href="https://github.com/tteck/Proxmox">Github - tteck/Proxmox</a></li>
+</ul>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>
